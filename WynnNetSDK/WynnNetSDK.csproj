@@ -40,11 +40,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Models\Classes\" />
+      <Folder Include="Models\Ability\" />
+      <Folder Include="Models\Guild\" />
       <Folder Include="Models\Items\" />
       <Folder Include="Models\Leaderboard\" />
       <Folder Include="Models\Map\" />
       <Folder Include="Models\News\" />
+      <Folder Include="Models\Recipes\" />
       <Folder Include="Models\Search\" />
       <Folder Include="Utils\" />
     </ItemGroup>
