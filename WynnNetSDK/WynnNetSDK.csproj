@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <RootNamespace>Tavstal.WynnNetSDK</RootNamespace>
+        <AssemblyName>WynnNetSDK</AssemblyName>
+        <AssemblyTitle>WynnNetSDK</AssemblyTitle>
+        <Product>WynnNetSDK</Product>
+        <Description>A modern SDK for .NET, designed to simplify wynncraft api integration.</Description>
+        <Company>Tavstal</Company>
+        <Authors>Tavstal</Authors>
+        <Copyright>Copyright © 2026 Tavstal</Copyright>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <Version>1.0.0</Version>
+        <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+
+        <PackageTags>api sdk client wynn wynncraft minecraft</PackageTags>
+        <PackageProjectUrl>https://github.com/TavstalDev/WynnNetSDK</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/TavstalDev/WynnNetSDK/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/TavstalDev/WynnNetSDK</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <DebugType>portable</DebugType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <IsTrimmable>true</IsTrimmable>
+        <IsAotCompatible>true</IsAotCompatible>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+        <EnableAotAnalyzer>true</EnableAotAnalyzer>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\Classes\" />
+      <Folder Include="Models\Items\" />
+      <Folder Include="Models\Leaderboard\" />
+      <Folder Include="Models\Map\" />
+      <Folder Include="Models\News\" />
+      <Folder Include="Models\Search\" />
+      <Folder Include="Utils\" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+    </PropertyGroup>
+
+</Project>
