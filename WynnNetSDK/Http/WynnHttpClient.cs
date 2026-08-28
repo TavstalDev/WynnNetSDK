@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
+using Tavstal.WynnNetSDK.Http.Clients;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Tavstal.WynnNetSDK.Http;
@@ -11,6 +12,16 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
     private WynnEnvironment _environment;
     private WynnClientOptions _options;
 
+    public AbilityClient Ability { get; private set; }
+    public ClassesClient Classes { get; private set; }
+    public GuildClient Guild { get; private set; }
+    public ItemsClient Items { get; private set; }
+    public LeaderboardClient Leaderboard { get; private set; }
+    public MapClient Map { get; private set; }
+    public NewsClient News { get; private set; }
+    public PlayerClient Player { get; private set; }
+    public SearchClient Search { get; private set; }
+    
     // Used by the M31.FluentApi generated builder.
     // ReSharper disable once UnusedMember.Local
     private WynnHttpClient()
@@ -18,6 +29,15 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         _httpClient = null!;
         _environment = null!;
         _options = null!;
+        Ability = null!;
+        Classes = null!;
+        Guild = null!;
+        Items = null!;
+        Leaderboard = null!;
+        Map = null!;
+        News = null!;
+        Player = null!;
+        Search = null!;
     }
     
     public WynnHttpClient(WynnEnvironment environment, WynnClientOptions? options = null)
@@ -54,6 +74,16 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
             var agent = _options.ApplicationName != null ? UserAgent.GetUserAgentHeader(_options.ApplicationName) : UserAgent.GetUserAgentHeader();
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
         }
+
+        Ability = new AbilityClient(this);
+        Classes = new ClassesClient(this);
+        Guild = new GuildClient(this);
+        Items = new ItemsClient(this);
+        Leaderboard = new LeaderboardClient(this);
+        Map = new MapClient(this);
+        News = new  NewsClient(this);
+        Player = new PlayerClient(this);
+        Search = new SearchClient(this);
     }
     
     private void Initialize(WynnEnvironment environment, HttpClient httpClient, WynnClientOptions? options)
@@ -79,6 +109,16 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
             var agent = _options.ApplicationName != null ? UserAgent.GetUserAgentHeader(_options.ApplicationName) : UserAgent.GetUserAgentHeader();
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
         }
+        
+        Ability = new AbilityClient(this);
+        Classes = new ClassesClient(this);
+        Guild = new GuildClient(this);
+        Items = new ItemsClient(this);
+        Leaderboard = new LeaderboardClient(this);
+        Map = new MapClient(this);
+        News = new  NewsClient(this);
+        Player = new PlayerClient(this);
+        Search = new SearchClient(this);
     }
     
     //[FluentMethod(2, "Build")]
@@ -105,7 +145,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
             _httpClient.Dispose(); 
         }catch { /* ignored */}
     }
-    
+
     public async Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)
     {
         if (!request.Headers.ContainsKey("Authorization"))
