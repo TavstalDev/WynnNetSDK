@@ -1,5 +1,3 @@
-using System.Text;
-
 namespace Tavstal.WynnNetSDK.Http;
 
 public class WynnEnvironment

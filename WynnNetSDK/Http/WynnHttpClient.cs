@@ -1,7 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
 using Tavstal.WynnNetSDK.Http.Clients;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Tavstal.WynnNetSDK.Http;
 
