@@ -60,7 +60,7 @@ public class PlayerDetailedInfo
     public float Playtime { get; set; }
     
     [JsonPropertyName("globalData")]
-    public PlayerGlobalData GlobalData { get; set; }
+    public PlayerGlobalData GlobalData { get; set; } = new();
     
     [JsonPropertyName("featuredStats")]
     public Dictionary<string, object> FeaturedStats { get; set; } = new();
@@ -72,8 +72,8 @@ public class PlayerDetailedInfo
     public string Avatar { get; set; } = "default";
     
     [JsonPropertyName("restrictions")]
-    public PlayerDataRestrictions Restrictions { get; set; }
+    public PlayerDataRestrictions Restrictions { get; set; } = new();
     
     [JsonPropertyName("characters")]
-    public Dictionary<string, PlayerCharacter> Characters { get; set; } = new();
+    public Dictionary<string, PlayerDetailedCharacter> Characters { get; set; } = new();
 }
