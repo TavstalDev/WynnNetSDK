@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.Common;
 
-namespace Tavstal.WynnNetSDK.Models.Ability;
+namespace Tavstal.WynnNetSDK.Models.Abilities;
 
 public class AbilityMap
 {

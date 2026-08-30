@@ -1,4 +1,4 @@
-namespace Tavstal.WynnNetSDK.Models.Ability;
+namespace Tavstal.WynnNetSDK.Models.Abilities;
 
 public enum EAbilityType
 {
