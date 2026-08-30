@@ -1,4 +1,5 @@
 using Tavstal.WynnNetSDK.Models.Items;
+using Tavstal.WynnNetSDK.Models.Items.Responses;
 
 namespace Tavstal.WynnNetSDK.Http.Requests.Items;
 

@@ -1,4 +1,4 @@
-namespace Tavstal.WynnNetSDK.Models.Items;
+namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 public enum EEmblem
 {

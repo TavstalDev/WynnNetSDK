@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace Tavstal.WynnNetSDK.Models.Items;
+namespace Tavstal.WynnNetSDK.Models.Common;
 
-public class ItemController
+public class PageController
 {
     [JsonPropertyName("count")]
     public int Count { get; set; }

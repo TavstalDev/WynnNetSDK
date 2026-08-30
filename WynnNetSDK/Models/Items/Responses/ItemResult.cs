@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Models.Common;
 
-namespace Tavstal.WynnNetSDK.Models.Items;
+namespace Tavstal.WynnNetSDK.Models.Items.Responses;
 
 public class ItemResult
 {
     [JsonPropertyName("controller")]
-    public ItemController Controller { get; set; } = new();
+    public PageController Controller { get; set; } = new();
     
     [JsonPropertyName("results")]
     public List<Item> Results { get; set; } = [];
