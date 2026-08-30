@@ -1,4 +1,4 @@
-using Tavstal.WynnNetSDK.Models.Ability;
+using Tavstal.WynnNetSDK.Models.Abilities;
 
 namespace Tavstal.WynnNetSDK.Http.Requests.Player;
 
