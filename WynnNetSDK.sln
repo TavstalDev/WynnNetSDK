@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WynnNetSDK", "WynnNetSDK\WynnNetSDK.csproj", "{FA161AA9-7E12-4FBF-8ADE-0691525BD391}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WynnNetSdk.Tests", "WynnNetSdk.Tests\WynnNetSdk.Tests.csproj", "{468FB480-2E0C-4AC6-BE3B-3C32FF87DEFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FA161AA9-7E12-4FBF-8ADE-0691525BD391}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA161AA9-7E12-4FBF-8ADE-0691525BD391}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA161AA9-7E12-4FBF-8ADE-0691525BD391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{468FB480-2E0C-4AC6-BE3B-3C32FF87DEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468FB480-2E0C-4AC6-BE3B-3C32FF87DEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468FB480-2E0C-4AC6-BE3B-3C32FF87DEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468FB480-2E0C-4AC6-BE3B-3C32FF87DEFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
