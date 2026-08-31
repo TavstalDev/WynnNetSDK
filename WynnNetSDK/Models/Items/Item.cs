@@ -1,6 +1,8 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.Items.Enums;
 using Tavstal.WynnNetSDK.Models.Items.Icon;
+using Tavstal.WynnNetSDK.Serialization;
 
 namespace Tavstal.WynnNetSDK.Models.Items;
 
@@ -76,7 +78,7 @@ public class Item
         {
             if (pair.Value is int num)
             {
-                dic.Add(pair.Key, new Identification()
+                dic.Add(pair.Key, new Identification
                 {
                     Min = num,
                     Raw = num,
@@ -86,7 +88,34 @@ public class Item
             }
 
             if (pair.Value is Identification iden)
+            {
                 dic.Add(pair.Key, iden);
+                continue;
+            }
+
+            if (pair.Value is JsonElement jsonElem)
+            {
+                if (jsonElem.ValueKind == JsonValueKind.Number)
+                {
+                    int jnum = jsonElem.GetInt32();
+                    dic.Add(pair.Key, new Identification
+                    {
+                        Min = jnum,
+                        Raw = jnum,
+                        Max = jnum
+                    });
+                    continue;
+                }
+                
+                if (jsonElem.ValueKind != JsonValueKind.Object)
+                    continue;
+                
+                var jid = jsonElem.Deserialize(WynnNetSDKJsonContext.Default.Identification);
+                if (jid == null)
+                    continue;
+                
+                dic.Add(pair.Key, jid);
+            }
         }
 
         return dic;
@@ -102,7 +131,7 @@ public class Item
         {
             if (pair.Value is int num)
             {
-                dic.Add(pair.Key, new Identification()
+                dic.Add(pair.Key, new Identification
                 {
                     Min = num,
                     Raw = num,
@@ -112,7 +141,34 @@ public class Item
             }
 
             if (pair.Value is Identification iden)
+            {
                 dic.Add(pair.Key, iden);
+                continue;
+            }
+
+            if (pair.Value is JsonElement jsonElem)
+            {
+                if (jsonElem.ValueKind == JsonValueKind.Number)
+                {
+                    int jnum = jsonElem.GetInt32();
+                    dic.Add(pair.Key, new Identification
+                    {
+                        Min = jnum,
+                        Raw = jnum,
+                        Max = jnum
+                    });
+                    continue;
+                }
+                
+                if (jsonElem.ValueKind != JsonValueKind.Object)
+                    continue;
+                
+                var jid = jsonElem.Deserialize(WynnNetSDKJsonContext.Default.Identification);
+                if (jid == null)
+                    continue;
+                
+                dic.Add(pair.Key, jid);
+            }
         }
 
         return dic;

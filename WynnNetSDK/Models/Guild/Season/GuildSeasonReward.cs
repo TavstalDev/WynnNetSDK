@@ -1,5 +1,7 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.Guild.Season.Reward;
+#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace Tavstal.WynnNetSDK.Models.Guild.Season;
 
@@ -12,27 +14,39 @@ public class GuildSeasonReward
     public EGuildRewardType Type { get; set; }
     
     [JsonPropertyName("value")]
-    public object? Value { get; set; }
+    [Obsolete("Please use ValueAsString() or ValueAsInteger().")]
+    public JsonElement? Value { get; set; }
     
     [JsonPropertyName("expires")]
     public DateTime? Expires { get; set; }
 
-    public void GetValue(out int? intValue, out string? stringValue)
+    public string? ValueAsString()
     {
-        if (Value is string str)
-        {
-            intValue = null;
-            stringValue = str;
-            return;
-        }
+        if (Value == null || !Value.HasValue)
+            return null;
 
-        if (Value is int @int)
+        var v = Value.Value;
+        switch (v.ValueKind)
         {
-            intValue = @int;
-            stringValue = null;
-            return;
+            case JsonValueKind.String:
+                return v.GetString();
+            case JsonValueKind.Number:
+                return v.GetRawText();
         }
+        return null;
+    }
 
-        throw new Exception("Invalid value.");
+    public int? ValueAsInteger()
+    {
+        if (Value == null || !Value.HasValue)
+            return null;
+
+        var v = Value.Value;
+        switch (v.ValueKind)
+        {
+            case JsonValueKind.Number:
+                return v.GetInt32();
+        }
+        return null;
     }
 }

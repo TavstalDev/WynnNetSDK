@@ -5,13 +5,13 @@ namespace Tavstal.WynnNetSDK.Models.Player;
 public class PlayerCharacter
 {
     [JsonPropertyName("type")]
-    public string Type { get; set; }
+    public string Type { get; set; } = string.Empty;
     
     [JsonPropertyName("reskin")]
     public string? Reskin { get; set; }
     
     [JsonPropertyName("nickname")]
-    public string Nickname { get; set; }
+    public string Nickname { get; set; } = string.Empty;
     
     [JsonPropertyName("level")]
     public int Level { get; set; }
@@ -29,5 +29,5 @@ public class PlayerCharacter
     public List<string> Gamemode { get; set; } = [];
     
    [JsonPropertyName("meta")]
-   public Dictionary<string, object> Meta { get; set; } = new();
+   public PlayerCharacterMeta Meta { get; set; } = new();
 }

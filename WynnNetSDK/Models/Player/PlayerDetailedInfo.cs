@@ -1,5 +1,7 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.Player.GlobalData;
+#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace Tavstal.WynnNetSDK.Models.Player;
 
@@ -63,7 +65,8 @@ public class PlayerDetailedInfo
     public PlayerGlobalData GlobalData { get; set; } = new();
     
     [JsonPropertyName("featuredStats")]
-    public Dictionary<string, object> FeaturedStats { get; set; } = new();
+    [Obsolete("Please use FeaturedStatsAsString().")]
+    public Dictionary<string, JsonElement> FeaturedStats { get; set; } = new();
     
     [JsonPropertyName("wallpaper")]
     public string Wallpaper { get; set; } = "default";
@@ -76,4 +79,26 @@ public class PlayerDetailedInfo
     
     [JsonPropertyName("characters")]
     public Dictionary<string, PlayerDetailedCharacter> Characters { get; set; } = new();
+
+    public Dictionary<string, string> FeaturedStatsAsString()
+    {
+        Dictionary<string, string> result = [];
+        foreach (var elem in FeaturedStats)
+        {
+            switch (elem.Value.ValueKind)
+            {
+                case JsonValueKind.String:
+                {
+                    result[elem.Key] = elem.Value.GetRawText();
+                    continue;
+                }
+                case JsonValueKind.Number:
+                {
+                    result[elem.Key] = elem.Value.GetInt32().ToString();
+                    continue;
+                }
+            }
+        }
+        return result;
+    }
 }

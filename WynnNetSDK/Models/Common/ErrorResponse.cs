@@ -14,5 +14,5 @@ public class ErrorResponse
     public int Code { get; set; } = -1;
 
     [JsonPropertyName("objects")] 
-    public object? Objects { get; set; } = null;
+    public Dictionary<string, object>? Objects { get; set; } = null;
 }

@@ -7,13 +7,13 @@ namespace Tavstal.WynnNetSDK.Models.Player;
 public class PlayerDetailedCharacter
 {
     [JsonPropertyName("type")]
-    public string Type { get; set; }
+    public string Type { get; set; } = string.Empty;
     
     [JsonPropertyName("reskin")]
     public string? Reskin { get; set; }
     
     [JsonPropertyName("nickname")]
-    public string Nickname { get; set; }
+    public string Nickname { get; set; } = string.Empty;
     
     [JsonPropertyName("level")]
     public int Level { get; set; }
@@ -67,7 +67,7 @@ public class PlayerDetailedCharacter
     public PlayerPvpInfo PvP { get; set; } = new();
     
     [JsonPropertyName("skillPoints")]
-    public SkillPoints SkillPoints { get; set; }
+    public SkillPoints SkillPoints { get; set; } = new();
     
     [JsonPropertyName("professions")]
     public Dictionary<string, PlayerProfessionInfo> Professions { get; set; } = new();
@@ -97,5 +97,5 @@ public class PlayerDetailedCharacter
     public List<string> RemovedStats { get; set; } = [];
     
     [JsonPropertyName("meta")]
-    public Dictionary<string, object> Meta { get; set; } = new();
+    public PlayerCharacterMeta Meta { get; set; } = new();
 }
