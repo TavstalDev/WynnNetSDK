@@ -40,9 +40,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Models\Leaderboard\" />
       <Folder Include="Models\Map\" />
-      <Folder Include="Models\News\" />
       <Folder Include="Models\Search\" />
       <Folder Include="Utils\" />
     </ItemGroup>
