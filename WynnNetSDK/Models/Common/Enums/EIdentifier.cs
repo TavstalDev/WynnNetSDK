@@ -1,4 +1,4 @@
-namespace Tavstal.WynnNetSDK.Models.Common;
+namespace Tavstal.WynnNetSDK.Models.Common.Enums;
 
 public enum EIdentifier
 {

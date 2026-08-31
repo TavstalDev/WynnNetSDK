@@ -1,4 +1,5 @@
 using Tavstal.WynnNetSDK.Models.News;
+using Tavstal.WynnNetSDK.Models.News.Enums;
 
 namespace Tavstal.WynnNetSDK.Http.Requests.News;
 

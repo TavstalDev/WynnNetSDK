@@ -1,4 +1,5 @@
 using Tavstal.WynnNetSDK.Models.Common;
+using Tavstal.WynnNetSDK.Models.Common.Enums;
 
 namespace Tavstal.WynnNetSDK.Http;
 

@@ -1,4 +1,6 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Models.News.Enums;
+using Tavstal.WynnNetSDK.Models.News.Polls;
 
 namespace Tavstal.WynnNetSDK.Models.News;
 

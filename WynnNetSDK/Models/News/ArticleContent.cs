@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Models.News.Polls;
 using Tavstal.WynnNetSDK.Serialization;
 
 namespace Tavstal.WynnNetSDK.Models.News;

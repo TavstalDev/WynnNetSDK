@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Models.News.Enums;
 
-namespace Tavstal.WynnNetSDK.Models.News;
+namespace Tavstal.WynnNetSDK.Models.News.Polls;
 
 public class PollQuestionRequirement
 {

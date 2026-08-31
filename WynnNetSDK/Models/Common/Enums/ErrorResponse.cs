@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Tavstal.WynnNetSDK.Models.Common;
+namespace Tavstal.WynnNetSDK.Models.Common.Enums;
 
 public class ErrorResponse
 {

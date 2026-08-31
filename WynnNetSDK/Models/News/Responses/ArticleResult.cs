@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.Common;
 
-namespace Tavstal.WynnNetSDK.Models.News;
+namespace Tavstal.WynnNetSDK.Models.News.Responses;
 
 public class ArticleResult
 {

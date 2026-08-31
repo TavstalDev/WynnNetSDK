@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Tavstal.WynnNetSDK.Models.News;
+namespace Tavstal.WynnNetSDK.Models.News.Polls;
 
 public class PublisherPollQuestion
 {

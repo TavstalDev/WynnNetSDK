@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.Common;
+using Tavstal.WynnNetSDK.Models.Common.Enums;
 
 namespace Tavstal.WynnNetSDK.Models.Guild.Banner;
 

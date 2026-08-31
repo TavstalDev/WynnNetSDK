@@ -1,4 +1,4 @@
-namespace Tavstal.WynnNetSDK.Models.News;
+namespace Tavstal.WynnNetSDK.Models.News.Enums;
 
 public enum EPollRequirementSubType
 {
