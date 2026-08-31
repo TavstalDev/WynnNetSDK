@@ -1,10 +1,17 @@
+using System.Text.Json.Serialization;
+
 namespace Tavstal.WynnNetSDK.Models.News.Enums;
 
 public enum EArticleType
 {
-    blog,
-    @event,
-    giveaway,
-    article,
-    poll
+    [JsonPropertyName("blog")]
+    BLOG,
+    [JsonPropertyName("event")]
+    EVENT,
+    [JsonPropertyName("giveaway")]
+    GIVEAWAY,
+    [JsonPropertyName("article")]
+    ARTICLE,
+    [JsonPropertyName("poll")]
+    POLL
 }

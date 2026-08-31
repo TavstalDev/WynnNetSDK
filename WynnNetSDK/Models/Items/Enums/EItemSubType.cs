@@ -1,32 +1,61 @@
+using System.Text.Json.Serialization;
+
 namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 public enum EItemSubType
 {
-    bow = 0,
-    dagger = 1,
-    relik = 2,
-    spear = 3,
-    wand = 4,
-    boots = 5,
-    chestplate = 6,
-    helmet = 7,
-    leggings = 8,
-    bracelet = 9,
-    necklace = 10,
-    ring = 11,
-    guildTome = 12,
-    armourTome = 13,
-    expertiseTome = 14,
-    marathonTome = 15,
-    mysticismTome = 16,
-    lootrunTome = 17,
-    weaponTome = 18,
-    axe = 19,
-    rod = 20,
-    pickaxe = 21,
-    scythe = 22,
-    farming = 23,
-    fishing = 24,
-    mining = 25,
-    woodcutting = 26
+    [JsonPropertyName("bow")]
+    BOW,
+    [JsonPropertyName("dagger")]
+    DAGGER,
+    [JsonPropertyName("relik")]
+    RELIK,
+    [JsonPropertyName("spear")]
+    SPEAR,
+    [JsonPropertyName("wand")]
+    WAND,
+    [JsonPropertyName("boots")]
+    BOOTS,
+    [JsonPropertyName("chestplate")]
+    CHESTPLATE,
+    [JsonPropertyName("helmet")]
+    HELMET,
+    [JsonPropertyName("leggings")]
+    LEGGINGS,
+    [JsonPropertyName("bracelet")]
+    BRACELET,
+    [JsonPropertyName("necklace")]
+    NECKLACE,
+    [JsonPropertyName("ring")]
+    RING,
+    [JsonPropertyName("guildTome")]
+    GUILD_TOME,
+    [JsonPropertyName("armourTome")]
+    ARMOUR_TOME,
+    [JsonPropertyName("expertiseTome")]
+    EXPERTISE_TOME,
+    [JsonPropertyName("marathonTome")]
+    MARATHON_TOME,
+    [JsonPropertyName("mysticismTome")]
+    MYSTICISM_TOME,
+    [JsonPropertyName("lootrunTome")]
+    LOOTRUN_TOME,
+    [JsonPropertyName("weaponTome")]
+    WEAPON_TOME,
+    [JsonPropertyName("axe")]
+    AXE,
+    [JsonPropertyName("rod")]
+    ROD,
+    [JsonPropertyName("pickaxe")]
+    PICKAXE,
+    [JsonPropertyName("scythe")]
+    SCYTHE,
+    [JsonPropertyName("farming")]
+    FARMING,
+    [JsonPropertyName("fishing")]
+    FISHING,
+    [JsonPropertyName("mining")]
+    MINING,
+    [JsonPropertyName("woodcutting")]
+    WOODCUTTING
 }
