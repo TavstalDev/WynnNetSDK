@@ -40,7 +40,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Models\Map\" />
       <Folder Include="Models\Search\" />
       <Folder Include="Utils\" />
     </ItemGroup>
