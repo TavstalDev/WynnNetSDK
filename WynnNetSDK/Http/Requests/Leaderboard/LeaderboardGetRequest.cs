@@ -1,6 +1,8 @@
+using Tavstal.WynnNetSDK.Models.Leaderboard;
+
 namespace Tavstal.WynnNetSDK.Http.Requests.Leaderboard;
 
-public class LeaderboardGetRequest : HttpRequestBase
+public class LeaderboardGetRequest : HttpRequestBase<Dictionary<string, LeaderboardEntry>>
 {
     public LeaderboardGetRequest(string leaderboardType, int resultLimit = 100) 
         : base(HttpMethod.Get, $"/v3/leaderboards/{leaderboardType}")
