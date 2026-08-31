@@ -1,7 +1,6 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
-using Tavstal.WynnNetSDK.Models.Common;
 using Tavstal.WynnNetSDK.Models.Common.Enums;
 using Tavstal.WynnNetSDK.Serialization;
 

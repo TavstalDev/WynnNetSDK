@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Tavstal.WynnNetSDK.Models.Items;
 using Tavstal.WynnNetSDK.Models.Items.Enums;
 
 namespace Tavstal.WynnNetSDK.Http.Requests.Items.Bodies;

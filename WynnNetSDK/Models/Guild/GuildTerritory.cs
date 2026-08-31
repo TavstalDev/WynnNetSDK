@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Tavstal.WynnNetSDK.Models.Common;
 using Tavstal.WynnNetSDK.Models.Common.Enums;
 using Tavstal.WynnNetSDK.Models.Guild.Territory;
 

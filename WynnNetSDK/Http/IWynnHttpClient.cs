@@ -20,6 +20,8 @@ public interface IWynnHttpClient
     
     PlayerClient Player { get; }
     
+    RecipesClient Recipes { get; }
+    
     SearchClient Search { get; }
     
     Task<HttpResponseMessage> SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default);

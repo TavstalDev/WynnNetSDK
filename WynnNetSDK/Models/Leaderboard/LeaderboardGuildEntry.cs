@@ -17,7 +17,7 @@ public class LeaderboardGuildEntry : LeaderboardEntry
     public double Score { get; set; }
     
     [JsonPropertyName("metadata")]
-    [JsonConverter(typeof(LeaderboardEntryMetaDeserializer))]
+    [JsonConverter(typeof(LeaderboardMetadataDeserializer))]
     public LeaderboardMetadata? Metadata { get; set; }
     
     [JsonPropertyName("banner")]

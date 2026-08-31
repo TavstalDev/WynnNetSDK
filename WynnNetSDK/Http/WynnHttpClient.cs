@@ -19,6 +19,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
     public MapClient Map { get; private set; }
     public NewsClient News { get; private set; }
     public PlayerClient Player { get; private set; }
+    public RecipesClient Recipes { get; private set; }
     public SearchClient Search { get; private set; }
     
     // Used by the M31.FluentApi generated builder.
@@ -36,6 +37,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         Map = null!;
         News = null!;
         Player = null!;
+        Recipes = null!;
         Search = null!;
     }
     
@@ -82,6 +84,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         Map = new MapClient(this);
         News = new  NewsClient(this);
         Player = new PlayerClient(this);
+        Recipes = new RecipesClient(this);
         Search = new SearchClient(this);
     }
     
@@ -117,6 +120,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         Map = new MapClient(this);
         News = new  NewsClient(this);
         Player = new PlayerClient(this);
+        Recipes = new RecipesClient(this);
         Search = new SearchClient(this);
     }
     
