@@ -8,5 +8,5 @@ public class AspectTier
     public int Threshold {  get; set; }
     
     [JsonPropertyName("description")]
-    public string Description { get; set; } = string.Empty;
+    public List<string> Description { get; set; } = [];
 }

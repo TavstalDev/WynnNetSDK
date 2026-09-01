@@ -28,6 +28,6 @@ public class PlayerClient : HttpClientBase
     public Task<Result<PlayerDetailedCharacter, ErrorResponse>> GetCharacterAsync(string username, string uuid, CancellationToken cancellationToken = default)
         => ExecuteAsync(new PlayerGetCharacterRequest(username, uuid), cancellationToken);
 
-    public Task<Result<Dictionary<string, AbilityMap>, ErrorResponse>> GetAbilityMapAsync(string username, string uuid, CancellationToken cancellationToken = default)
+    public Task<Result<Dictionary<string, List<AbilityMap>>, ErrorResponse>> GetAbilityMapAsync(string username, string uuid, CancellationToken cancellationToken = default)
         => ExecuteAsync(new PlayerGetAbilityMapRequest(username, uuid), cancellationToken);
 }
