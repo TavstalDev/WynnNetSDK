@@ -9,7 +9,7 @@ public class PollQuestionRequirement
     public EPollRequirement Type { get; set; }
     
     [JsonPropertyName("subType")]
-    public EPollRequirementSubType SubType { get; set; }
+    public EPollRequirementSubType? SubType { get; set; }
         
     [JsonPropertyName("value")]
     public int Value { get; set; }

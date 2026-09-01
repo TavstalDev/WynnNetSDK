@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.News.Polls;
 using Tavstal.WynnNetSDK.Serialization;
+#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace Tavstal.WynnNetSDK.Models.News;
 
@@ -17,6 +18,7 @@ public class ArticleContent
     public bool Focus { get; set; }
     
     [JsonPropertyName("content")]
+    [Obsolete("Please use ContentAsString() or ContentAsPoll() instead.")]
     public JsonElement Content { get; set; } = new();
     
     [JsonPropertyName("discord")]

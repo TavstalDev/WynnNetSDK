@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Tavstal.WynnNetSDK.Models.News.Enums;
 using Tavstal.WynnNetSDK.Models.News.Polls;
@@ -55,7 +56,7 @@ public class Article
     public string Banner { get; set; } = string.Empty;
     
     [JsonPropertyName("banner_zoom")]
-    public string BannerZoom { get; set; } = string.Empty;
+    public bool BannerZoom { get; set; }
     
     [JsonPropertyName("likes")]
     public int Likes { get; set; }
@@ -76,5 +77,16 @@ public class Article
     public bool? PollPublic { get; set; }
     
     [JsonPropertyName("votes")]
-    public Dictionary<string, int>? Votes { get; set; }
+    public Dictionary<string, JsonElement>? Votes { get; set; }
+
+    public int? GetVoteCount()
+    {
+        if (Votes == null)
+            return null;
+        if (!Votes.TryGetValue("total", out var vote))
+            return null;
+        if (vote.ValueKind != JsonValueKind.Number)
+            return null;
+        return vote.GetInt32();
+    }
 }
