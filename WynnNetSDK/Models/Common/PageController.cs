@@ -14,11 +14,11 @@ public class PageController
     public int Pages { get; set; }
     
     [JsonPropertyName("prev")]
-    public int Prev { get; set; }
+    public int? Prev { get; set; }
     
     [JsonPropertyName("current")]
     public int Current { get; set; }
     
     [JsonPropertyName("next")]
-    public int Next { get; set; }
+    public int? Next { get; set; }
 }
