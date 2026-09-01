@@ -1,0 +1,32 @@
+{
+  "endpoint": "v3/map/loot-pools",
+  "statusCode": 200,
+  "response": [
+    {
+      "name": "The Corkus Traversal",
+      "internalName": "corkusCamp1",
+      "type": "CAMP",
+      "rewards": [
+        {
+          "name": "Liquified Emerald",
+          "type": "CURRENCY",
+          "amount": 2,
+          "always": false
+        }
+      ]
+    },
+    {
+      "name": "The Nameless Anomaly",
+      "internalName": "nameless",
+      "type": "RAID",
+      "rewards": [
+        {
+          "name": "Tome of Remedial Expertise III",
+          "type": "TOME",
+          "amount": 1,
+          "always": false
+        }
+      ]
+    }
+  ]
+}

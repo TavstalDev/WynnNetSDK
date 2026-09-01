@@ -1,14 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
+        <RootNamespace>Tavstal.WynnNetSdk.Tests</RootNamespace>
+        <AssemblyName>Tavstal.WynnNetSdk.Tests</AssemblyName>
+
+
+        <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+        <EnableAotAnalyzer>true</EnableAotAnalyzer>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="coverlet.collector" Version="6.0.4"/>
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
         <PackageReference Include="xunit" Version="2.9.3"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4"/>
@@ -16,6 +23,19 @@
 
     <ItemGroup>
         <Using Include="Xunit"/>
+        <Using Include="FluentAssertions"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Resources/**/*.json" CopyToOutputDirectory="Always" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Tests\Endpoints\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WynnNetSDK\WynnNetSDK.csproj" />
     </ItemGroup>
 
 </Project>

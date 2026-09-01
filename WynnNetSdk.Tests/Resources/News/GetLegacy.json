@@ -1,0 +1,14 @@
+{
+  "endpoint": "v3/latest-news",
+  "statusCode": 200,
+  "response": [
+    {
+      "title": "The Fallen",
+      "date": "2019-06-01",
+      "forumThread": "https://forums.wynncraft.com/threads/1/",
+      "author": "Grian",
+      "content": "The Fallen art book has arrived!",
+      "comments": "https://forums.wynncraft.com/threads/1/"
+    }
+  ]
+}

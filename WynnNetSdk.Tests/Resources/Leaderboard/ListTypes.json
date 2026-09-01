@@ -1,0 +1,8 @@
+{
+  "endpoint": "v3/leaderboards/types",
+  "statusCode": 200,
+  "response": [
+    "guild",
+    "player"
+  ]
+}

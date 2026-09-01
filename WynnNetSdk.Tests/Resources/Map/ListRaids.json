@@ -1,0 +1,29 @@
+{
+  "endpoint": "v3/map/raids",
+  "statusCode": 200,
+  "response": [
+    {
+      "name": "The Nameless Anomaly",
+      "internalName": "nameless",
+      "type": "RAID",
+      "lore": "Test",
+      "difficulty": "HARD",
+      "level": 103,
+      "length": "MEDIUM",
+      "requirements": [],
+      "location": {
+        "x": 4,
+        "y": 5,
+        "z": 6
+      },
+      "rewards": [
+        {
+          "name": "Tome of Remedial Expertise III",
+          "type": "TOME",
+          "amount": 1,
+          "always": false
+        }
+      ]
+    }
+  ]
+}

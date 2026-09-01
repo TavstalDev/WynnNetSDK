@@ -1,0 +1,12 @@
+{
+  "endpoint": "v3/player",
+  "statusCode": 200,
+  "response": {
+    "total": 421,
+    "players": {
+      "Audria": "WC1",
+      "Spark": "WC2",
+      "Navy": "WC4"
+    }
+  }
+}

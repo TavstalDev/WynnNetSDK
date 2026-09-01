@@ -1,0 +1,26 @@
+{
+  "endpoint": "v3/classes",
+  "statusCode": 200,
+  "response": {
+    "archer": {
+      "name": "Archer",
+      "overallDifficulty": 2
+    },
+    "assassin": {
+      "name": "Assassin",
+      "overallDifficulty": 3
+    },
+    "mage": {
+      "name": "Mage",
+      "overallDifficulty": 2
+    },
+    "shaman": {
+      "name": "Shaman",
+      "overallDifficulty": 4
+    },
+    "warrior": {
+      "name": "Warrior",
+      "overallDifficulty": 1
+    }
+  }
+}

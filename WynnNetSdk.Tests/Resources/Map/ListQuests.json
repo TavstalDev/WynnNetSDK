@@ -1,0 +1,7 @@
+{
+  "endpoint": "v3/map/quests",
+  "statusCode": 200,
+  "response": {
+    "quests": 312
+  }
+}

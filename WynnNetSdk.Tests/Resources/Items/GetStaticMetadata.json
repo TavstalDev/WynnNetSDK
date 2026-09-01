@@ -1,0 +1,42 @@
+{
+  "endpoint": "v3/item/metadata?static",
+  "statusCode": 200,
+  "response": {
+    "filters": {
+      "type": [
+        "weapon"
+      ],
+      "advanced": {
+        "attackSpeed": [
+          "fast"
+        ]
+      },
+      "tier": {
+        "weapon": [
+          "legendary"
+        ]
+      },
+      "identifications": [
+        "spellDamage"
+      ],
+      "majorIds": [
+        "tidalDrift"
+      ],
+      "levelRange": [
+        1,
+        105
+      ]
+    },
+    "static": {
+      "fast": 22,
+      "diamond": 315,
+      "mining": 389,
+      "manaRegen": 28,
+      "tidalDrift": 78,
+      "morph": 4,
+      "spear": 123,
+      "mythic": 456,
+      "weapon": 789
+    }
+  }
+}

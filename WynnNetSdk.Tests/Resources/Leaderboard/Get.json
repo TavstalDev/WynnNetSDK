@@ -1,0 +1,44 @@
+{
+  "endpoint": "v3/leaderboards/lb_type",
+  "statusCode": 200,
+  "response": {
+    "1": {
+      "metaScore": 16082980,
+      "name": "Sequoia",
+      "uuid": "ee860b7c-9a1d-49cf-9f19-ab673ba0f23b",
+      "prefix": "SEQ",
+      "score": 16082980,
+      "metadata": {
+        "completions": 37580,
+        "gambits": 434509
+      },
+      "banner": {
+        "base": "YELLOW",
+        "tier": 8,
+        "structure": "dynastyBanner",
+        "layers": [
+          {
+            "colour": "BLACK",
+            "pattern": "RHOMBUS_MIDDLE"
+          },
+          {
+            "colour": "YELLOW",
+            "pattern": "CROSS"
+          },
+          {
+            "colour": "BLACK",
+            "pattern": "FLOWER"
+          },
+          {
+            "colour": "RED",
+            "pattern": "GRADIENT_UP"
+          },
+          {
+            "colour": "WHITE",
+            "pattern": "CIRCLE_MIDDLE"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "endpoint": "v3/publisher/videos/list",
+  "statusCode": 200,
+  "response": {
+    "dQw4w9WgXcQ": "Example Video",
+    "abc123xyz890": "Another Video"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "endpoint": "v3/publisher/articles/list/ARTICLE",
+  "statusCode": 200,
+  "response": {
+    "controller": {
+      "count": 1,
+      "current_count": 1,
+      "pages": 1,
+      "prev": 0,
+      "current": 1,
+      "next": 2
+    },
+    "results": {
+      "1234": {
+        "pk": "1234",
+        "title": "Welcome to Wynncraft",
+        "type": "article",
+        "banner": "banner.png",
+        "banner_zoom": "banner_zoom.png",
+        "recap": "A welcome article.",
+        "visible": true,
+        "start_date": "2026-01-01T00:00:00.000Z",
+        "end_date": null,
+        "pinned": false,
+        "has_content": true,
+        "published_at": "2026-01-01T00:00:00.000Z"
+      }
+    }
+  }
+}
