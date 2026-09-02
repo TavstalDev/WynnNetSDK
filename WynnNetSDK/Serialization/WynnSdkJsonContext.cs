@@ -20,6 +20,7 @@ using Tavstal.WynnNetSDK.Models.Player;
 using Tavstal.WynnNetSDK.Models.Player.Responses;
 using Tavstal.WynnNetSDK.Models.Recipes;
 using Tavstal.WynnNetSDK.Models.Recipes.Responses;
+using Tavstal.WynnNetSDK.Models.Search;
 
 namespace Tavstal.WynnNetSDK.Serialization;
 
@@ -76,4 +77,5 @@ namespace Tavstal.WynnNetSDK.Serialization;
 [JsonSerializable(typeof(Recipe))]
 [JsonSerializable(typeof(Dictionary<string, LeaderboardEntry>))]
 [JsonSerializable(typeof(Dictionary<string, List<AbilityMap>>))]
+[JsonSerializable(typeof(SearchResult))]
 public partial class WynnNetSDKJsonContext : JsonSerializerContext;

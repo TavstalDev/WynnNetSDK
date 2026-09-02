@@ -42,10 +42,6 @@
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Models\Search\" />
-    </ItemGroup>
 
     <PropertyGroup>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
