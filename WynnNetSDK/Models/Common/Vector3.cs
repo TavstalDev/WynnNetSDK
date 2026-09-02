@@ -5,11 +5,11 @@ namespace Tavstal.WynnNetSDK.Models.Common;
 public class Vector3
 {
     [JsonPropertyName("x")] 
-    public int X { get; set; }
+    public double X { get; set; }
 
     [JsonPropertyName("y")] 
-    public int Y { get; set; }
+    public double Y { get; set; }
 
     [JsonPropertyName("z")]
-    public int Z { get; set; }
+    public double Z { get; set; }
 }
