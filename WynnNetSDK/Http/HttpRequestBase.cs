@@ -14,12 +14,24 @@ public abstract class HttpRequestBase
     
     public Dictionary<string, string> Headers { get; protected set; } = [];
     
-    public HttpContent? Content { get; set;  }
+    public HttpContent? Content { get; set; }
     
-    protected HttpRequestBase(HttpMethod method, string url)
+    public Type? ContentType { get; protected set; }
+    public JsonTypeInfo? ContentJsonTypeInfo { get; protected set; }
+    
+    protected HttpRequestBase(HttpMethod method, string url, object? content = null)
     {
         Method = method;
         RequestUri = new Uri(url, UriKind.Relative);
+
+        if (content != null)
+        {
+            ContentType = content.GetType();
+            ContentJsonTypeInfo = WynnNetSDKJsonContext.Default.GetTypeInfo(ContentType);
+            if (ContentJsonTypeInfo== null)
+                throw new InvalidOperationException($"Type {ContentType.Name} is not registered in the provided JsonSerializerContext.");
+            Content = JsonContent.Create(content, ContentJsonTypeInfo);
+        }
     }
     
     public async Task<ErrorResponse?> GetErrorResponseAsync(HttpResponseMessage response,
@@ -46,12 +58,22 @@ public abstract class HttpRequestBase
             requestMessage.Headers.TryAddWithoutValidation(header.Key, header.Value);
         return requestMessage;
     }
+    
+    public string GetKey()
+    {
+        if (ContentJsonTypeInfo != null)
+            return  $"{Method}:{RequestUri}:{JsonSerializer.Serialize(Content, ContentJsonTypeInfo!)}";
+        return $"{Method}:{RequestUri}";
+    }
 }
 
 public abstract class HttpRequestBase<T> : HttpRequestBase where T : class
 {
     protected HttpRequestBase(HttpMethod method, string url)
         : base(method, url) { }
+    
+    protected HttpRequestBase(HttpMethod method, string url, object? content = null)
+        : base(method, url, content) { }
     
     public async Task<T?> GetResponseBodyAsync(HttpResponseMessage response, CancellationToken cancellationToken = default)
     {

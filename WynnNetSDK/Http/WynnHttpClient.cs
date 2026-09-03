@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
+using Tavstal.WynnNetSDK.Caching;
 using Tavstal.WynnNetSDK.Http.Clients;
 
 namespace Tavstal.WynnNetSDK.Http;
@@ -41,7 +42,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         Search = null!;
     }
     
-    public WynnHttpClient(WynnEnvironment environment, WynnClientOptions? options = null)
+    public WynnHttpClient(WynnEnvironment environment, WynnClientOptions? options = null, ICacheManager? cacheManager = null)
         : this(environment, new HttpClient(new SocketsHttpHandler
         {
             AutomaticDecompression = (options ?? new WynnClientOptions()).EnableCompression
@@ -49,10 +50,10 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
                 : DecompressionMethods.None,
             MaxConnectionsPerServer = (options ?? new WynnClientOptions()).MaxConnectionsPerServer,
             Proxy = (options ?? new WynnClientOptions()).Proxy
-        }), options)
+        }), cacheManager, options)
     { }
     
-    internal WynnHttpClient(WynnEnvironment environment, HttpClient httpClient, WynnClientOptions? options = null)
+    internal WynnHttpClient(WynnEnvironment environment, HttpClient httpClient, ICacheManager? cacheManager = null, WynnClientOptions? options = null)
     {
         _httpClient = httpClient;
         _options = options ?? new WynnClientOptions();
@@ -76,68 +77,16 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
         }
 
-        Ability = new AbilityClient(this);
-        Classes = new ClassesClient(this);
-        Guild = new GuildClient(this);
-        Items = new ItemsClient(this);
-        Leaderboard = new LeaderboardClient(this);
-        Map = new MapClient(this);
-        News = new  NewsClient(this);
-        Player = new PlayerClient(this);
-        Recipes = new RecipesClient(this);
-        Search = new SearchClient(this);
-    }
-    
-    private void Initialize(WynnEnvironment environment, HttpClient httpClient, WynnClientOptions? options)
-    {
-        _httpClient = httpClient;
-        _options = options ?? new WynnClientOptions();
-        _environment = environment;
-        _httpClient.MaxResponseContentBufferSize = _options.MaxResponseContentBufferSize;
-        _httpClient.Timeout = _options.Timeout;
-
-        // Ensure BaseAddress and some default headers exist when not already set on the supplied HttpClient.
-        if (_httpClient.BaseAddress == null)
-            _httpClient.BaseAddress = new Uri(_environment.BaseUrl);
-
-        if (!_httpClient.DefaultRequestHeaders.Contains("Accept"))
-            _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-        
-        if (_options.EnableCompression)
-            _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
-
-        if (!_httpClient.DefaultRequestHeaders.UserAgent.Any())
-        {
-            var agent = _options.ApplicationName != null ? UserAgent.GetUserAgentHeader(_options.ApplicationName) : UserAgent.GetUserAgentHeader();
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(agent);
-        }
-        
-        Ability = new AbilityClient(this);
-        Classes = new ClassesClient(this);
-        Guild = new GuildClient(this);
-        Items = new ItemsClient(this);
-        Leaderboard = new LeaderboardClient(this);
-        Map = new MapClient(this);
-        News = new  NewsClient(this);
-        Player = new PlayerClient(this);
-        Recipes = new RecipesClient(this);
-        Search = new SearchClient(this);
-    }
-    
-    //[FluentMethod(2, "Build")]
-    public void Build()
-    {
-        // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
-        var opts = _options ?? new WynnClientOptions();
-        var client = new HttpClient(new SocketsHttpHandler
-        {
-            AutomaticDecompression = opts.EnableCompression
-                ? DecompressionMethods.GZip | DecompressionMethods.Deflate
-                : DecompressionMethods.None,
-            MaxConnectionsPerServer = opts.MaxConnectionsPerServer,
-            Proxy = opts.Proxy
-        });
-        Initialize(_environment, client, opts);
+        Ability = new AbilityClient(this, cacheManager);
+        Classes = new ClassesClient(this, cacheManager);
+        Guild = new GuildClient(this, cacheManager);
+        Items = new ItemsClient(this, cacheManager);
+        Leaderboard = new LeaderboardClient(this, cacheManager);
+        Map = new MapClient(this, cacheManager);
+        News = new  NewsClient(this, cacheManager);
+        Player = new PlayerClient(this, cacheManager);
+        Recipes = new RecipesClient(this, cacheManager);
+        Search = new SearchClient(this, cacheManager);
     }
     
     public void Dispose()

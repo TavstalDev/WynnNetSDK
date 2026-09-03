@@ -4,9 +4,13 @@ namespace Tavstal.WynnNetSDK.Http;
 
 public interface IClient
 {
+    bool CanExecute();
+
+    void ResetRpm();
+    
     Task<Result<T, ErrorResponse>> ExecuteAsync<T>(HttpRequestBase<T> requestBase,
-        CancellationToken cancellationToken = default) where T : class;
+        TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) where T : class;
     
     Task<Result<bool, ErrorResponse>> ExecuteAsync(HttpRequestBase requestBase,
-        CancellationToken cancellationToken = default);
+        TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
 }
