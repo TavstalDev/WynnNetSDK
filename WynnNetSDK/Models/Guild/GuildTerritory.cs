@@ -16,10 +16,10 @@ public class GuildTerritory
     public bool IsHeadquarters { get; set; }
     
     [JsonPropertyName("resources")]
-    public List<TerritoryResource> Resources { get; set; }
+    public List<TerritoryResource> Resources { get; set; } = [];
     
     [JsonPropertyName("links")]
-    public List<string> Links { get; set; }
+    public List<string> Links { get; set; } = [];
     
     [JsonPropertyName("treasury")]
     public EScaleLevel Treasury { get; set; }
@@ -28,5 +28,5 @@ public class GuildTerritory
     public EScaleLevel Defences { get; set; }
     
     [JsonPropertyName("location")]
-    public TerritoryLocation Location { get; set; }
+    public TerritoryLocation Location { get; set; } = new();
 }
