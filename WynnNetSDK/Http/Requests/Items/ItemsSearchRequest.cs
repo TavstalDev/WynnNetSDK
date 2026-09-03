@@ -8,7 +8,7 @@ namespace Tavstal.WynnNetSDK.Http.Requests.Items;
 public class ItemsSearchRequest : HttpRequestBase<ItemResult>
 {
     public ItemsSearchRequest(ItemSearchRequestBody requestBody, int? page = null, bool? fullResult = null) 
-        : base(HttpMethod.Post, "/v3/item/search")
+        : base(HttpMethod.Post, "/v3/item/search", requestBody)
     {
         List<string> queryParams = [];
         if (page is > 0)
@@ -21,6 +21,5 @@ public class ItemsSearchRequest : HttpRequestBase<ItemResult>
         
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
-        Content = JsonContent.Create(requestBody, WynnNetSDKJsonContext.Default.ItemSearchRequestBody);
     }
 }

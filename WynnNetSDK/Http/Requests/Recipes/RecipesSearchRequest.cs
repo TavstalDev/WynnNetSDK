@@ -8,7 +8,7 @@ namespace Tavstal.WynnNetSDK.Http.Requests.Recipes;
 public class RecipesSearchRequest : HttpRequestBase<RecipeResult>
 {
     public RecipesSearchRequest(RecipesSearchRequestBody requestBody, int? page = null, bool? fullResult = null) 
-        : base(HttpMethod.Post, "/v3/item/recipe/search")
+        : base(HttpMethod.Post, "/v3/item/recipe/search", requestBody)
     {
         List<string> queryParams = [];
         if (page is > 0)
@@ -21,6 +21,5 @@ public class RecipesSearchRequest : HttpRequestBase<RecipeResult>
         
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
-        Content = JsonContent.Create(requestBody, WynnNetSDKJsonContext.Default.RecipesSearchRequestBody);
     }
 }
