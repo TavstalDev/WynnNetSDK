@@ -57,7 +57,7 @@ public class PlayerTests : TestBase
         var online = await request.GetResponseBodyAsync(response);
         online.Should().NotBeNull();
 
-        _testOutputHelper.WriteLine("Total Online: " + online!.Totat);
+        _testOutputHelper.WriteLine("Total Online: " + online!.Total);
         _testOutputHelper.WriteLine("Players:");
         foreach (var player in online.Players)
             _testOutputHelper.WriteLine($"  {player.Key} -> {player.Value}");
