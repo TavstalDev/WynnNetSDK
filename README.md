@@ -7,7 +7,7 @@
 ![Issues](https://img.shields.io/github/issues/TavstalDev/WynnNetSDK?style=plastic-square)
 
 **WynnNetSDK** is a modern C# library for .NET. It helps you connect your .NET application to the
-[Wynncraft API](https://api.wynncraft.com). It handles the HTTP calls, JSON serialization, retries,
+[Wynncraft API](https://docs.wynncraft.com/welcome). It handles the HTTP calls, JSON serialization, retries,
 rate limits, and caching for you, so you can focus on your own code.
 
 It is built for **.NET 8**, **.NET 9**, and **.NET 10**.
@@ -66,7 +66,7 @@ else
 }
 ```
 
-> **Tip**: This SDK requires an API token (the `WynnEnvironment` constructor rejects empty tokens). You can request a token from [https://api.wynncraft.com](https://api.wynncraft.com).
+> **Tip**: This SDK requires an API token (the `WynnEnvironment` constructor rejects empty tokens). You can request a token from [Account Dashboard](https://docs.wynncraft.com/authentication#creating-tokens).
 
 ---
 
