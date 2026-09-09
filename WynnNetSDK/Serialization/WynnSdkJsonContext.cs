@@ -24,6 +24,9 @@ using Tavstal.WynnNetSDK.Models.Search;
 
 namespace Tavstal.WynnNetSDK.Serialization;
 
+/// <summary>
+/// Provides JSON serialization context for the SDK types.
+/// </summary>
 [JsonSourceGenerationOptions(DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, UseStringEnumConverter = true)]
 [JsonSerializable(typeof(ErrorResponse))]
 [JsonSerializable(typeof(ItemSearchRequestBody))]

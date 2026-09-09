@@ -3,8 +3,15 @@ using Tavstal.WynnNetSDK.Models.Guild;
 
 namespace Tavstal.WynnNetSDK.Http.Requests.Guild;
 
+/// <summary>
+/// A request to list all guilds from the Wynncraft API.
+/// </summary>
 public class GuildListRequest : HttpRequestBase<Dictionary<string, GuildResult>>
 {
+    /// <summary>
+    /// Creates a new request to list all guilds.
+    /// </summary>
+    /// <param name="identifier">The identifier type to use in the response.</param>
     public GuildListRequest(EIdentifier? identifier = null) 
         : base(HttpMethod.Get, "/v3/guild/list/guild")
     {
