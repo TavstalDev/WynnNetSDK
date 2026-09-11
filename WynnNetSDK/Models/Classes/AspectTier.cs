@@ -11,7 +11,7 @@ public class AspectTier
     /// The point threshold required to reach this tier.
     /// </summary>
     [JsonPropertyName("threshold")]
-    public int Threshold {  get; set; }
+    public int Threshold { get; set; }
 
     /// <summary>
     /// The description lines explaining this tier's effects.

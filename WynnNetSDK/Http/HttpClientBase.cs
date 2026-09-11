@@ -9,11 +9,19 @@ namespace Tavstal.WynnNetSDK.Http;
 /// </summary>
 public abstract class HttpClientBase : IClient
 {
+    /// <summary>
+    /// The HTTP client used to send requests.
+    /// </summary>
     protected readonly IWynnHttpClient _client;
     private readonly ICacheManager? _cacheManager;
     private int _remainingRpm = 120;
     private DateTime _nextReset;
-    
+
+    /// <summary>
+    /// Creates a new client with the given HTTP client and optional cache manager.
+    /// </summary>
+    /// <param name="client">The HTTP client used to send requests.</param>
+    /// <param name="cacheManager">An optional cache manager for storing responses.</param>
     protected HttpClientBase(IWynnHttpClient client, ICacheManager? cacheManager = null)
     {
         _client = client;
@@ -55,13 +63,13 @@ public abstract class HttpClientBase : IClient
                 cachedResult = await _cacheManager.GetAsync<T>(cacheKey, cancellationToken);
             if (cachedResult != null)
                 return Result<T, ErrorResponse>.Success(cachedResult);
-            
+
             if (!CanExecute())
                 throw new RateLimitException
                 {
                     AvailableAt = _nextReset
                 };
-            
+
             var response = await _client.SendAsync(requestBase, cancellationToken);
             if (!response.IsSuccessStatusCode)
                 return await HandleErrorAsync<T>(requestBase, response, cancellationToken);
@@ -80,7 +88,7 @@ public abstract class HttpClientBase : IClient
                 {
                     await _cacheManager.AddAsync(cacheKey, responseBody, DateTime.UtcNow.Add(cacheTime.Value), cancellationToken);
                 }
-                
+
                 return Result<T, ErrorResponse>.Success(responseBody);
             }
             catch (OperationCanceledException)
@@ -102,7 +110,7 @@ public abstract class HttpClientBase : IClient
                 _remainingRpm--;
         }
     }
-    
+
     /// <summary>
     /// Sends a request that does not return a response body.
     /// </summary>
@@ -110,7 +118,7 @@ public abstract class HttpClientBase : IClient
     /// <param name="cacheTime">How long to cache the result. Null means no caching.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>A result indicating success or failure.</returns>
-    public async Task<Result<bool, ErrorResponse>> ExecuteAsync(HttpRequestBase requestBase, TimeSpan? cacheTime = null,  CancellationToken cancellationToken = default)
+    public async Task<Result<bool, ErrorResponse>> ExecuteAsync(HttpRequestBase requestBase, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -131,7 +139,7 @@ public abstract class HttpClientBase : IClient
                 _remainingRpm--;
         }
     }
-    
+
     private async Task<Result<T, ErrorResponse>> HandleErrorAsync<T>(HttpRequestBase requestBase, HttpResponseMessage response, CancellationToken cancellationToken)
     {
         try

@@ -10,7 +10,7 @@ public class MapListPlayerLocationsRequest : HttpRequestBase<List<MapPlayerInfo>
     /// <summary>
     /// Creates a new request to list all player locations.
     /// </summary>
-    public MapListPlayerLocationsRequest() 
+    public MapListPlayerLocationsRequest()
         : base(HttpMethod.Get, "/v3/map/locations/player")
     {
     }

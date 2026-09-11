@@ -29,7 +29,7 @@ public class ClassDetail
     /// The overall difficulty rating of the class.
     /// </summary>
     [JsonPropertyName("overallDifficulty")]
-    public int OverallyDifficulty {  get; set; }
+    public int OverallyDifficulty { get; set; }
 
     /// <summary>
     /// The maximum overall stat value for this class.

@@ -13,7 +13,7 @@ public class RecipeResult
     /// </summary>
     [JsonPropertyName("controller")]
     public PageController Controller { get; set; } = new();
-    
+
     /// <summary>
     /// The list of recipes matching the search query.
     /// </summary>

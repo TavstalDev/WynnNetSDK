@@ -11,7 +11,7 @@ public class ArchtypeDetail
     /// The display name of the archetype.
     /// </summary>
     [JsonPropertyName("name")]
-    public string Name {  get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// The difficulty rating of this archetype.

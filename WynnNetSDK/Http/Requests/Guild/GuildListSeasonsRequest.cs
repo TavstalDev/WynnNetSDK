@@ -10,7 +10,7 @@ public class GuildListSeasonsRequest : HttpRequestBase<Dictionary<string, GuildS
     /// <summary>
     /// Creates a new request to list all guild seasons.
     /// </summary>
-    public GuildListSeasonsRequest() 
+    public GuildListSeasonsRequest()
         : base(HttpMethod.Get, "/v3/guild/seasons")
     {
     }

@@ -10,7 +10,7 @@ public class MapListQuestsRequest : HttpRequestBase<MapQuests>
     /// <summary>
     /// Creates a new request to list all quests.
     /// </summary>
-    public MapListQuestsRequest() 
+    public MapListQuestsRequest()
         : base(HttpMethod.Get, "/v3/map/quests")
     {
     }

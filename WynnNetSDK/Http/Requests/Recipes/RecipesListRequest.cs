@@ -12,7 +12,7 @@ public class RecipesListRequest : HttpRequestBase<RecipeResult>
     /// </summary>
     /// <param name="page">The page number to retrieve.</param>
     /// <param name="fullResult">Whether to return the full result without pagination.</param>
-    public RecipesListRequest(int? page = null, bool? fullResult = null) 
+    public RecipesListRequest(int? page = null, bool? fullResult = null)
         : base(HttpMethod.Get, "/v3/item/recipe/database")
     {
         List<string> queryParams = [];
@@ -20,10 +20,10 @@ public class RecipesListRequest : HttpRequestBase<RecipeResult>
             queryParams.Add($"page={page}");
         if (fullResult is true)
             queryParams.Add("full_result");
-        
+
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

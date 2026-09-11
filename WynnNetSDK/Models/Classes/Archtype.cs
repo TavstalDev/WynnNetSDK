@@ -12,7 +12,7 @@ public class Archtype
     /// The display name of the archetype.
     /// </summary>
     [JsonPropertyName("name")]
-    public string Name { get; set; } =  string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// The full description of the archetype.

@@ -16,7 +16,7 @@ public class RecipesSearchRequest : HttpRequestBase<RecipeResult>
     /// <param name="requestBody">The search criteria to filter recipes.</param>
     /// <param name="page">The page number to retrieve.</param>
     /// <param name="fullResult">Whether to return the full result without pagination.</param>
-    public RecipesSearchRequest(RecipesSearchRequestBody requestBody, int? page = null, bool? fullResult = null) 
+    public RecipesSearchRequest(RecipesSearchRequestBody requestBody, int? page = null, bool? fullResult = null)
         : base(HttpMethod.Post, "/v3/item/recipe/search", requestBody)
     {
         List<string> queryParams = [];
@@ -24,10 +24,10 @@ public class RecipesSearchRequest : HttpRequestBase<RecipeResult>
             queryParams.Add($"page={page}");
         if (fullResult is true)
             queryParams.Add("full_result");
-        
+
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

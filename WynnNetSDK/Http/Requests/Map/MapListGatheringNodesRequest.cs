@@ -10,7 +10,7 @@ public class MapListGatheringNodesRequest : HttpRequestBase<List<MapGatherNode>>
     /// <summary>
     /// Creates a new request to list all gathering nodes.
     /// </summary>
-    public MapListGatheringNodesRequest() 
+    public MapListGatheringNodesRequest()
         : base(HttpMethod.Get, "/v3/map/gathering-nodes")
     {
     }

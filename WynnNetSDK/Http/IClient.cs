@@ -17,7 +17,7 @@ public interface IClient
     /// Resets the request counter so a new minute of requests can begin.
     /// </summary>
     void ResetRpm();
-    
+
     /// <summary>
     /// Sends a request that returns a typed response body.
     /// </summary>
@@ -28,7 +28,7 @@ public interface IClient
     /// <returns>A result containing the response value or an error.</returns>
     Task<Result<T, ErrorResponse>> ExecuteAsync<T>(HttpRequestBase<T> requestBase,
         TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) where T : class;
-    
+
     /// <summary>
     /// Sends a request that does not return a response body.
     /// </summary>

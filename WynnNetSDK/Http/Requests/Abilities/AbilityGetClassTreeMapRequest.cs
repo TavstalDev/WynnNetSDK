@@ -12,7 +12,7 @@ public class AbilityGetClassTreeMapRequest : HttpRequestBase<Dictionary<string, 
     /// Creates a new request to get the ability tree map for a class.
     /// </summary>
     /// <param name="class">The class to get the ability tree map for.</param>
-    public AbilityGetClassTreeMapRequest(EClass @class) 
+    public AbilityGetClassTreeMapRequest(EClass @class)
         : base(HttpMethod.Get, $"/v3/ability/map/{@class}")
     {
     }

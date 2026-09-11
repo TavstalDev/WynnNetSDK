@@ -12,7 +12,7 @@ public class LeaderboardGetRequest : HttpRequestBase<Dictionary<string, Leaderbo
     /// </summary>
     /// <param name="leaderboardType">The type of leaderboard to retrieve.</param>
     /// <param name="resultLimit">The maximum number of results to return. Between 1 and 1000.</param>
-    public LeaderboardGetRequest(string leaderboardType, int resultLimit = 100) 
+    public LeaderboardGetRequest(string leaderboardType, int resultLimit = 100)
         : base(HttpMethod.Get, $"/v3/leaderboards/{leaderboardType}")
     {
         List<string> queryParams = [];
@@ -21,10 +21,10 @@ public class LeaderboardGetRequest : HttpRequestBase<Dictionary<string, Leaderbo
         if (resultLimit > 1000)
             resultLimit = 1000;
         queryParams.Add($"resultLimit={resultLimit}");
-        
+
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

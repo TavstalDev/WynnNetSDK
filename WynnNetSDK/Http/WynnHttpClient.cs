@@ -35,7 +35,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
     public RecipesClient Recipes { get; private set; }
     /// <summary>Client for the search API endpoint.</summary>
     public SearchClient Search { get; private set; }
-    
+
     // Used by the M31.FluentApi generated builder.
     // ReSharper disable once UnusedMember.Local
     private WynnHttpClient()
@@ -54,7 +54,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         Recipes = null!;
         Search = null!;
     }
-    
+
     /// <summary>
     /// Creates a new client with the given environment and optional settings.
     /// </summary>
@@ -71,7 +71,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
             Proxy = (options ?? new WynnClientOptions()).Proxy
         }), cacheManager, options)
     { }
-    
+
     internal WynnHttpClient(WynnEnvironment environment, HttpClient httpClient, ICacheManager? cacheManager = null, WynnClientOptions? options = null)
     {
         _httpClient = httpClient;
@@ -86,7 +86,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
 
         if (!_httpClient.DefaultRequestHeaders.Contains("Accept"))
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-        
+
         if (_options.EnableCompression)
             _httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
 
@@ -102,12 +102,12 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         Items = new ItemsClient(this, cacheManager);
         Leaderboard = new LeaderboardClient(this, cacheManager);
         Map = new MapClient(this, cacheManager);
-        News = new  NewsClient(this, cacheManager);
+        News = new NewsClient(this, cacheManager);
         Player = new PlayerClient(this, cacheManager);
         Recipes = new RecipesClient(this, cacheManager);
         Search = new SearchClient(this, cacheManager);
     }
-    
+
     /// <summary>
     /// Releases the resources used by this client.
     /// </summary>
@@ -116,8 +116,9 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
         try
         {
             _semaphore.Dispose();
-            _httpClient.Dispose(); 
-        }catch { /* ignored */}
+            _httpClient.Dispose();
+        }
+        catch { /* ignored */}
     }
 
     /// <summary>
@@ -153,7 +154,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
                         newContent.Headers.TryAddWithoutValidation(header.Key, header.Value);
                 request.Content = newContent;
             }
-                
+
             try
             {
                 response = await _httpClient.SendAsync(request.ToHttpRequestMessage(), cancellationToken);

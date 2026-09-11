@@ -18,7 +18,7 @@ public class PlayerClient : HttpClientBase
     /// <param name="client">The HTTP client used to send requests.</param>
     /// <param name="cacheManager">An optional cache manager for storing responses.</param>
     public PlayerClient(IWynnHttpClient client, ICacheManager? cacheManager = null) : base(client, cacheManager) { }
-    
+
     /// <summary>
     /// Lists online players, optionally filtered by identifier type and server name.
     /// </summary>
@@ -28,7 +28,7 @@ public class PlayerClient : HttpClientBase
     /// <returns>A response containing online player data.</returns>
     public Task<Result<PlayerListOnlineResponse, ErrorResponse>> ListOnlineAsync(EIdentifier? identifier = null, string? server = null, CancellationToken cancellationToken = default)
         => ExecuteAsync(new PlayerListOnlineRequest(identifier, server), TimeSpan.FromSeconds(30), cancellationToken);
-    
+
     /// <summary>
     /// Lists online players, optionally filtered by identifier type and server ID.
     /// </summary>
@@ -38,7 +38,7 @@ public class PlayerClient : HttpClientBase
     /// <returns>A response containing online player data.</returns>
     public Task<Result<PlayerListOnlineResponse, ErrorResponse>> ListOnlineAsync(EIdentifier? identifier = null, int? server = null, CancellationToken cancellationToken = default)
         => ExecuteAsync(new PlayerListOnlineRequest(identifier, server), TimeSpan.FromSeconds(30), cancellationToken);
-    
+
     /// <summary>
     /// Gets the detailed profile of a player by their username.
     /// </summary>
@@ -47,7 +47,7 @@ public class PlayerClient : HttpClientBase
     /// <returns>Detailed information about the player.</returns>
     public Task<Result<PlayerDetailedInfo, ErrorResponse>> GetProfileAsync(string username, CancellationToken cancellationToken = default)
         => ExecuteAsync(new PlayerGetProfileRequest(username), TimeSpan.FromSeconds(120), cancellationToken);
-    
+
     /// <summary>
     /// Gets the authenticated user's own player data.
     /// </summary>
@@ -55,7 +55,7 @@ public class PlayerClient : HttpClientBase
     /// <returns>A dictionary with the authenticated user's player info.</returns>
     public Task<Result<Dictionary<string, PlayerInfo>, ErrorResponse>> WhoAmIAsync(CancellationToken cancellationToken = default)
         => ExecuteAsync(new PlayerWhoAmIRequest(), null, cancellationToken);
-    
+
     /// <summary>
     /// Lists all characters for a specific player.
     /// </summary>

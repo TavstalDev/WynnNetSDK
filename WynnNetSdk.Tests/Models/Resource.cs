@@ -9,16 +9,16 @@ public class Resource
 {
     [JsonPropertyName("endpoint")]
     public required string Endpoint { get; set; }
-    
+
     [JsonPropertyName("statusCode")]
     public required int StatusCode { get; set; }
-    
+
     [JsonIgnore]
     public string? JsonRequest { get; set; }
-    
+
     [JsonIgnore]
     public required string JsonResponse { get; set; }
-    
+
     public HttpResponseMessage Responder(HttpRequestMessage request)
     {
         var path = request.RequestUri?.OriginalString.TrimStart('/') ?? string.Empty;
@@ -31,7 +31,7 @@ public class Resource
         }
         return new HttpResponseMessage(HttpStatusCode.NotFound);
     }
-    
+
     public static Resource FromFile(string path)
     {
         string json = File.ReadAllText(path);

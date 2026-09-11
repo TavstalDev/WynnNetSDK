@@ -11,7 +11,7 @@ public class ItemsQuickSearchRequest : HttpRequestBase<List<Item>>
     /// Creates a new request to quickly search for items by name.
     /// </summary>
     /// <param name="query">The search query to match item names.</param>
-    public ItemsQuickSearchRequest(string query) 
+    public ItemsQuickSearchRequest(string query)
         : base(HttpMethod.Get, $"/v3/item/search/{query}")
     {
     }

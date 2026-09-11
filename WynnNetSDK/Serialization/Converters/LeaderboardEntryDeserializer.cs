@@ -21,14 +21,14 @@ public class LeaderboardEntryDeserializer : JsonConverter<LeaderboardEntry>
         using var doc = JsonDocument.ParseValue(ref reader);
         var element = doc.RootElement;
         var json = element.GetRawText();
-        
+
         if (element.TryGetProperty("username", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardPlayerEntry);
-        
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardPlayerEntry);
+
         if (element.TryGetProperty("guildUuid", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardGuildLegacyEntry);
-        
-        return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardGuildEntry);
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardGuildLegacyEntry);
+
+        return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardGuildEntry);
     }
 
     /// <summary>

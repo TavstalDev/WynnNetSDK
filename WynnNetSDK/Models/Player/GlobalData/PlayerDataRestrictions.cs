@@ -12,7 +12,7 @@ public class PlayerDataRestrictions
     /// </summary>
     [JsonPropertyName("mainAccess")]
     public bool MainAccess { get; set; }
-    
+
     /// <summary>
     /// Whether the player's character data is accessible.
     /// </summary>

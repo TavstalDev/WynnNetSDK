@@ -12,31 +12,31 @@ public class LegacyArticle
     /// </summary>
     [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The date the article was posted.
     /// </summary>
     [JsonPropertyName("date")]
     public string Date { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The URL of the forum thread.
     /// </summary>
     [JsonPropertyName("forumThread")]
     public string ForumThread { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The author of the article.
     /// </summary>
     [JsonPropertyName("author")]
     public string Author { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The HTML content of the article.
     /// </summary>
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The comments on the article.
     /// </summary>

@@ -16,7 +16,7 @@ public class ItemsSearchRequest : HttpRequestBase<ItemResult>
     /// <param name="requestBody">The search criteria to filter items.</param>
     /// <param name="page">The page number to retrieve.</param>
     /// <param name="fullResult">Whether to return the full result without pagination.</param>
-    public ItemsSearchRequest(ItemSearchRequestBody requestBody, int? page = null, bool? fullResult = null) 
+    public ItemsSearchRequest(ItemSearchRequestBody requestBody, int? page = null, bool? fullResult = null)
         : base(HttpMethod.Post, "/v3/item/search", requestBody)
     {
         List<string> queryParams = [];
@@ -24,10 +24,10 @@ public class ItemsSearchRequest : HttpRequestBase<ItemResult>
             queryParams.Add($"page={page}");
         if (fullResult is true)
             queryParams.Add("fullResult");
-        
+
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

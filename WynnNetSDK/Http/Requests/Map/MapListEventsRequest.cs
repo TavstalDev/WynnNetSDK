@@ -10,7 +10,7 @@ public class MapListEventsRequest : HttpRequestBase<List<MapWorldEvent>>
     /// <summary>
     /// Creates a new request to list all world events.
     /// </summary>
-    public MapListEventsRequest() 
+    public MapListEventsRequest()
         : base(HttpMethod.Get, "/v3/map/world-events")
     {
     }

@@ -16,38 +16,38 @@ public class ArticleContent
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The type of the content block.
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// Whether this content block is the focus element.
     /// </summary>
     [JsonPropertyName("focus")]
     public bool Focus { get; set; }
-    
+
     /// <summary>
     /// The raw JSON content. Use ContentAsString() or ContentAsPoll() instead.
     /// </summary>
     [JsonPropertyName("content")]
     [Obsolete("Please use ContentAsString() or ContentAsPoll() instead.")]
     public JsonElement Content { get; set; } = new();
-    
+
     /// <summary>
     /// Whether this content block is shown on Discord.
     /// </summary>
     [JsonPropertyName("discord")]
     public bool Discord { get; set; }
-    
+
     /// <summary>
     /// Whether this content block is shown on the website.
     /// </summary>
     [JsonPropertyName("website")]
     public bool Website { get; set; }
-    
+
     /// <summary>
     /// Returns the content as a string, or null if it is not a string.
     /// </summary>
@@ -67,6 +67,6 @@ public class ArticleContent
     {
         if (Content.ValueKind != JsonValueKind.Object)
             return null;
-        return Content.Deserialize(WynnNetSDKJsonContext.Default.PublisherPollQuestion);
+        return Content.Deserialize(WynnSdkJsonContext.Default.PublisherPollQuestion);
     }
 }

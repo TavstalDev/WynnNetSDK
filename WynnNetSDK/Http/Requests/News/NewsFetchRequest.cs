@@ -13,7 +13,7 @@ public class NewsFetchRequest : HttpRequestBase<Article>
     /// </summary>
     /// <param name="type">The type of article to fetch.</param>
     /// <param name="pk">The primary key of the article.</param>
-    public NewsFetchRequest(EArticleType type, string pk) 
+    public NewsFetchRequest(EArticleType type, string pk)
         : base(HttpMethod.Get, $"/v3/publisher/articles/fetch/{type}/{pk}")
     {
     }

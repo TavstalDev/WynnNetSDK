@@ -12,13 +12,13 @@ public class SpriteValue
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The display name of the sprite item.
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The custom model data value for the sprite.
     /// </summary>

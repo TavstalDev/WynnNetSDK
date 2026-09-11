@@ -11,7 +11,7 @@ public class GuildGetPrefixRequest : HttpRequestBase<GuildDetailedInfo>
     /// Creates a new request to get a guild by its prefix.
     /// </summary>
     /// <param name="query">The prefix of the guild to search for.</param>
-    public GuildGetPrefixRequest(string query) 
+    public GuildGetPrefixRequest(string query)
         : base(HttpMethod.Get, $"/v3/guild/prefix/{query}")
     {
     }

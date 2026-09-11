@@ -177,7 +177,7 @@ public class Item
                 if (jsonElem.ValueKind != JsonValueKind.Object)
                     continue;
 
-                var jid = jsonElem.Deserialize(WynnNetSDKJsonContext.Default.Identification);
+                var jid = jsonElem.Deserialize(WynnSdkJsonContext.Default.Identification);
                 if (jid == null)
                     continue;
 
@@ -234,7 +234,7 @@ public class Item
                 if (jsonElem.ValueKind != JsonValueKind.Object)
                     continue;
 
-                var jid = jsonElem.Deserialize(WynnNetSDKJsonContext.Default.Identification);
+                var jid = jsonElem.Deserialize(WynnSdkJsonContext.Default.Identification);
                 if (jid == null)
                     continue;
 

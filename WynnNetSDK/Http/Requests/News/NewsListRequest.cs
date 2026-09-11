@@ -13,16 +13,16 @@ public class NewsListRequest : HttpRequestBase<ArticleResult>
     /// </summary>
     /// <param name="type">The type of articles to list.</param>
     /// <param name="page">The page number to retrieve.</param>
-    public NewsListRequest(EArticleType type, int? page = null) 
+    public NewsListRequest(EArticleType type, int? page = null)
         : base(HttpMethod.Get, $"/v3/publisher/articles/list/{type}")
     {
         List<string> queryParams = [];
         if (page is > 0)
             queryParams.Add($"page={page}");
-        
+
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

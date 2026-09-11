@@ -8,13 +8,13 @@ namespace Tavstal.WynnNetSDK.Http;
 public static class UserAgent
 {
     private static int OperatingSystemBitness => Environment.Is64BitOperatingSystem ? 64 : 32;
-    
+
     private static string OperatingSystemName => Environment.OSVersion.ToString();
-    
+
     private static string DotNetClrVersion => Environment.Version.ToString().Trim();
-    
+
     private static string DotNetVersion => Environment.Version.ToString();
-    
+
     /// <summary>
     /// Builds a User-Agent header value that includes the application name, .NET version, and OS info.
     /// </summary>

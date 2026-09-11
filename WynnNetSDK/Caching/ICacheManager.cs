@@ -14,14 +14,14 @@ public interface ICacheManager
     /// <param name="validUntilUtc">The UTC time when the cached value expires.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task AddAsync<T>(string key, T value, DateTime validUntilUtc, CancellationToken cancellationToken = default);
-    
+
     /// <summary>
     /// Removes a value from the cache.
     /// </summary>
     /// <param name="key">The cache key to remove.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task RemoveAsync(string key, CancellationToken cancellationToken = default);
-    
+
     /// <summary>
     /// Gets a cached value by its key. Returns null when the value is missing or expired.
     /// </summary>

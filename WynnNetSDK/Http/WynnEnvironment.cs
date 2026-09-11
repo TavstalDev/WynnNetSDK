@@ -14,13 +14,13 @@ public class WynnEnvironment
     /// The API token used for authentication.
     /// </summary>
     public string Token { get; }
-    
+
     /// <summary>
     /// Creates a new environment with the default base URL and the given token.
     /// </summary>
     /// <param name="token">The API token to use.</param>
-    public WynnEnvironment(string token) : this("https://api.wynncraft.com", token) {}
-    
+    public WynnEnvironment(string token) : this("https://api.wynncraft.com", token) { }
+
     /// <summary>
     /// Creates a new environment with a custom base URL and token.
     /// </summary>
@@ -32,7 +32,7 @@ public class WynnEnvironment
             throw new ArgumentException("Base URL cannot be null or empty.", nameof(baseUrl));
         if (string.IsNullOrEmpty(token))
             throw new ArgumentException("Token cannot be null or empty.", nameof(token));
-        
+
         BaseUrl = baseUrl;
         Token = token;
     }

@@ -13,19 +13,19 @@ public class MapLootPool
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The internal identifier of the loot pool.
     /// </summary>
     [JsonPropertyName("internalName")]
     public string InternalName { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The camp type of the loot pool.
     /// </summary>
     [JsonPropertyName("type")]
     public ECampType Type { get; set; }
-    
+
     /// <summary>
     /// The list of rewards in this loot pool.
     /// </summary>

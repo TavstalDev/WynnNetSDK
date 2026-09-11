@@ -11,7 +11,7 @@ public class PlayerGetProfileRequest : HttpRequestBase<PlayerDetailedInfo>
     /// Creates a new request to get the detailed profile of a player.
     /// </summary>
     /// <param name="username">The username of the player.</param>
-    public PlayerGetProfileRequest(string username) 
+    public PlayerGetProfileRequest(string username)
         : base(HttpMethod.Get, $"/v3/player/{username}")
     {
     }

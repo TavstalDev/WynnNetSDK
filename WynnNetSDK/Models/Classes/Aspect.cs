@@ -30,7 +30,7 @@ public class Aspect
     /// The rarity tier of the aspect.
     /// </summary>
     [JsonPropertyName("rarity")]
-    public string Rarity {  get; set; } = string.Empty;
+    public string Rarity { get; set; } = string.Empty;
 
     /// <summary>
     /// The class required to use this aspect.

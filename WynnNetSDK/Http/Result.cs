@@ -22,24 +22,24 @@ public sealed class Result<T, TError>
     [MemberNotNullWhen(false, nameof(Value))]
     [MemberNotNullWhen(true, nameof(Error))]
     public bool IsError => !IsSuccess;
-    
+
     /// <summary>
     /// The value returned on success. Null when the operation failed.
     /// </summary>
     public T? Value { get; }
-    
+
     /// <summary>
     /// The error returned on failure. Null when the operation succeeded.
     /// </summary>
     public TError? Error { get; }
-    
+
     private Result(bool isSuccess, T? value, TError? error)
     {
         IsSuccess = isSuccess;
         Value = value;
         Error = error;
     }
-    
+
     /// <summary>
     /// Returns a value based on whether the result is a success or a failure.
     /// </summary>
@@ -49,7 +49,7 @@ public sealed class Result<T, TError>
     /// <returns>The value produced by the matching function.</returns>
     public TResult Match<TResult>(Func<T, TResult> onSuccess, Func<TError, TResult> onFailure)
         => IsSuccess ? onSuccess(Value) : onFailure(Error);
-    
+
     /// <summary>
     /// Runs one of two actions depending on whether the result is a success or a failure.
     /// </summary>
@@ -57,12 +57,12 @@ public sealed class Result<T, TError>
     /// <param name="onFailure">An action called with the error when the result is a failure.</param>
     public void Switch(Action<T> onSuccess, Action<TError> onFailure)
     {
-         if (IsSuccess) 
-             onSuccess(Value);
-         else 
-             onFailure(Error);
+        if (IsSuccess)
+            onSuccess(Value);
+        else
+            onFailure(Error);
     }
-    
+
     /// <summary>
     /// Creates a successful result with the given value.
     /// </summary>
@@ -70,7 +70,7 @@ public sealed class Result<T, TError>
     /// <returns>A new successful result.</returns>
     public static Result<T, TError> Success(T value)
         => new(true, value, default);
-    
+
     /// <summary>
     /// Creates a failed result with the given error.
     /// </summary>

@@ -12,7 +12,7 @@ public class Material
     /// </summary>
     [JsonPropertyName("item")]
     public string Item { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The quantity of the item needed.
     /// </summary>

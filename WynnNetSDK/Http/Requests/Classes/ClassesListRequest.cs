@@ -10,7 +10,7 @@ public class ClassesListRequest : HttpRequestBase<Dictionary<string, Class>>
     /// <summary>
     /// Creates a new request to list all classes.
     /// </summary>
-    public ClassesListRequest() 
+    public ClassesListRequest()
         : base(HttpMethod.Get, "/v3/classes")
     {
     }

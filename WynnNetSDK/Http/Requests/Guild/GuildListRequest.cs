@@ -12,7 +12,7 @@ public class GuildListRequest : HttpRequestBase<Dictionary<string, GuildResult>>
     /// Creates a new request to list all guilds.
     /// </summary>
     /// <param name="identifier">The identifier type to use in the response.</param>
-    public GuildListRequest(EIdentifier? identifier = null) 
+    public GuildListRequest(EIdentifier? identifier = null)
         : base(HttpMethod.Get, "/v3/guild/list/guild")
     {
         List<string> queryParams = [];
@@ -21,7 +21,7 @@ public class GuildListRequest : HttpRequestBase<Dictionary<string, GuildResult>>
 
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

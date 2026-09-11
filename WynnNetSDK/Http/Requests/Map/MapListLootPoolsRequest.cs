@@ -17,10 +17,10 @@ public class MapListLootPoolsRequest : HttpRequestBase<List<MapLootPool>>
         List<string> queryParams = [];
         if (level != null)
             queryParams.Add($"level={level}");
-        
+
         if (queryParams.Count == 0)
             return;
-        
+
         var queryString = string.Join("&", queryParams);
         RequestUri = new Uri(RequestUri + "?" + queryString, UriKind.Relative);
     }

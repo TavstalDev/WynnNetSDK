@@ -24,14 +24,14 @@ public class SearchTests : TestBase
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
 
         var request = new SearchRequest("Bo");
-        
+
         var response = await client.SendAsync(request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        
+
         var result = await request.GetResponseBodyAsync(response);
         result.Should().NotBeNull();
-        
-        
+
+
         _testOutputHelper.WriteLine($"Search -> {result!.Query}");
         _testOutputHelper.WriteLine("Players: ");
         foreach (var player in result.Players ?? new Dictionary<string, string>())

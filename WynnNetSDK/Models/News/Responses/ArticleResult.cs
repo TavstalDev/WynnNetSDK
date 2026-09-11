@@ -13,7 +13,7 @@ public class ArticleResult
     /// </summary>
     [JsonPropertyName("controller")]
     public PageController Controller { get; set; } = new();
-    
+
     /// <summary>
     /// The dictionary of article information keyed by article identifier.
     /// </summary>

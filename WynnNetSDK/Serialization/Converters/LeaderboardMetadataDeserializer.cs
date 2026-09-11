@@ -24,20 +24,20 @@ public class LeaderboardMetadataDeserializer : JsonConverter<LeaderboardMetadata
 
         // Detect type by checking unique properties
         if (element.TryGetProperty("playtime", out _) && element.TryGetProperty("totalLevelXp", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardMetadataTotalLevelXpPlaytime);
-            
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataTotalLevelXpPlaytime);
+
         if (element.TryGetProperty("xp", out _) && element.TryGetProperty("playtime", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardMetadataXpPlaytime);
-            
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataXpPlaytime);
+
         if (element.TryGetProperty("playtime", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardMetadataPlaytime);
-            
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataPlaytime);
+
         if (element.TryGetProperty("completions", out _) && element.TryGetProperty("gambits", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardMetadataCompletionsGambits);
-            
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataCompletionsGambits);
+
         if (element.TryGetProperty("season", out _))
-            return JsonSerializer.Deserialize(json, WynnNetSDKJsonContext.Default.LeaderboardMetadataSeason);
-            
+            return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataSeason);
+
         throw new InvalidOperationException("Could not determine metadata type");
     }
 

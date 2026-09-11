@@ -11,7 +11,7 @@ public class AbilityGetClassAspectsRequest : HttpRequestBase<List<Aspect>>
     /// Creates a new request to get the class aspects.
     /// </summary>
     /// <param name="class">The class to get aspects for.</param>
-    public AbilityGetClassAspectsRequest(EClass @class) 
+    public AbilityGetClassAspectsRequest(EClass @class)
         : base(HttpMethod.Get, $"/v3/aspects/{@class}")
     {
     }

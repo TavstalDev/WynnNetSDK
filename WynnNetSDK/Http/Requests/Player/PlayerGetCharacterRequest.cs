@@ -12,7 +12,7 @@ public class PlayerGetCharacterRequest : HttpRequestBase<PlayerDetailedCharacter
     /// </summary>
     /// <param name="username">The username of the player.</param>
     /// <param name="uuid">The UUID of the character.</param>
-    public PlayerGetCharacterRequest(string username, string uuid) 
+    public PlayerGetCharacterRequest(string username, string uuid)
         : base(HttpMethod.Get, $"/v3/player/{username}/characters/{uuid}")
     {
     }

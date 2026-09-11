@@ -5,6 +5,12 @@ namespace Tavstal.WynnNetSDK.Models.Abilities;
 /// </summary>
 public enum EAbilityType
 {
-    ABILITY=0,
-    CONNECTOR=1
+    /// <summary>
+    /// An ability that can be unlocked in the tree.
+    /// </summary>
+    ABILITY = 0,
+    /// <summary>
+    /// A line that connects two abilities in the tree.
+    /// </summary>
+    CONNECTOR = 1
 }

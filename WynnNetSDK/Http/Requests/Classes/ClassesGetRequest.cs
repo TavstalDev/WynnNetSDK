@@ -11,7 +11,7 @@ public class ClassesGetRequest : HttpRequestBase<ClassDetail>
     /// Creates a new request to get detailed information about a class.
     /// </summary>
     /// <param name="class">The class to get information for.</param>
-    public ClassesGetRequest(EClass @class) 
+    public ClassesGetRequest(EClass @class)
         : base(HttpMethod.Get, $"/v3/classes/{@class}")
     {
     }

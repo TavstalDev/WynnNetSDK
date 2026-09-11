@@ -53,7 +53,7 @@ public class AbilityMapMeta
             }
             case JsonValueKind.Object:
             {
-                var obj = v.Deserialize(WynnNetSDKJsonContext.Default.ItemIcon);
+                var obj = v.Deserialize(WynnSdkJsonContext.Default.ItemIcon);
                 objIcon = obj;
                 strIcon = null;
                 return;

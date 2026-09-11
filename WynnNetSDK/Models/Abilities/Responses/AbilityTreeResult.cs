@@ -18,5 +18,5 @@ public class AbilityTreeResult
     /// The ability pages in the tree, grouped by page number.
     /// </summary>
     [JsonPropertyName("pages")]
-    public Dictionary<string, Dictionary<string, Ability>> Pages {  get; set; } = [];
+    public Dictionary<string, Dictionary<string, Ability>> Pages { get; set; } = [];
 }

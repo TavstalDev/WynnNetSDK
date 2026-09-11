@@ -10,7 +10,7 @@ public class ItemsFilterStaticMetadataRequest : HttpRequestBase<ItemMetaStaticRe
     /// <summary>
     /// Creates a new request to get static item filter metadata.
     /// </summary>
-    public ItemsFilterStaticMetadataRequest() 
+    public ItemsFilterStaticMetadataRequest()
         : base(HttpMethod.Get, "/v3/item/metadata?static")
     {
 

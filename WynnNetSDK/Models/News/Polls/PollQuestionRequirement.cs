@@ -13,13 +13,13 @@ public class PollQuestionRequirement
     /// </summary>
     [JsonPropertyName("type")]
     public EPollRequirement Type { get; set; }
-    
+
     /// <summary>
     /// The sub type of the requirement, such as a profession or raid.
     /// </summary>
     [JsonPropertyName("subType")]
     public EPollRequirementSubType? SubType { get; set; }
-        
+
     /// <summary>
     /// The required value for the requirement.
     /// </summary>

@@ -12,7 +12,7 @@ public class PlayerProfessionInfo
     /// </summary>
     [JsonPropertyName("level")]
     public int Level { get; set; }
-    
+
     /// <summary>
     /// The experience progress percentage to the next level.
     /// </summary>

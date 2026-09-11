@@ -17,7 +17,7 @@ public class SkillPoints
     /// The amount of dexterity skill points.
     /// </summary>
     [JsonPropertyName("dexterity")]
-    public int Dexterity {  get; set; }
+    public int Dexterity { get; set; }
 
     /// <summary>
     /// The amount of intelligence skill points.
@@ -29,7 +29,7 @@ public class SkillPoints
     /// The amount of defence skill points.
     /// </summary>
     [JsonPropertyName("defence")]
-    public int Defence {  get; set; }
+    public int Defence { get; set; }
 
     /// <summary>
     /// The amount of agility skill points.

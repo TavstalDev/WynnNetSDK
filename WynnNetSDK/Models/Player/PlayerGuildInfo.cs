@@ -12,25 +12,25 @@ public class PlayerGuildInfo
     /// </summary>
     [JsonPropertyName("uuid")]
     public string? Uuid { get; set; }
-    
+
     /// <summary>
     /// The full name of the guild.
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The short prefix of the guild.
     /// </summary>
     [JsonPropertyName("prefix")]
     public string Prefix { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The player's rank within the guild.
     /// </summary>
     [JsonPropertyName("rank")]
     public string Rank { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The star decoration for the player's guild rank.
     /// </summary>

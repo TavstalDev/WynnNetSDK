@@ -12,7 +12,7 @@ public class PlayerListOnlineResponse
     /// </summary>
     [JsonPropertyName("total")]
     public int Total { get; set; }
-    
+
     /// <summary>
     /// A dictionary of online players mapped by UUID to username.
     /// </summary>

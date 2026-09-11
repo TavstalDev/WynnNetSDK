@@ -13,7 +13,7 @@ public class WorldEventRequirement
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The value of the requirement as a JSON element.
     /// </summary>

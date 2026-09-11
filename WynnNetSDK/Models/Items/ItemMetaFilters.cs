@@ -29,7 +29,7 @@ public class ItemMetaFilters
     /// The list of available identification filters.
     /// </summary>
     [JsonPropertyName("identifications")]
-    public List<string> Identifications  { get; set; } = [];
+    public List<string> Identifications { get; set; } = [];
 
     /// <summary>
     /// The list of available major ID filters.

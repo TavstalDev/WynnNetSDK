@@ -16,15 +16,15 @@ public class LeaderboardClient : HttpClientBase
     /// <param name="client">The HTTP client used to send requests.</param>
     /// <param name="cacheManager">An optional cache manager for storing responses.</param>
     public LeaderboardClient(IWynnHttpClient client, ICacheManager? cacheManager = null) : base(client, cacheManager) { }
-    
+
     /// <summary>
     /// Lists all available leaderboard types.
     /// </summary>
     /// <param name="cancellationToken">A token to cancel the request.</param>
     /// <returns>A list of leaderboard type names.</returns>
     public Task<Result<List<string>, ErrorResponse>> ListTypesAsync(CancellationToken cancellationToken = default)
-        => ExecuteAsync(new LeaderboardListRequest(),   TimeSpan.FromMinutes(10), cancellationToken);
-    
+        => ExecuteAsync(new LeaderboardListRequest(), TimeSpan.FromMinutes(10), cancellationToken);
+
     /// <summary>
     /// Gets leaderboard entries for a specific leaderboard type.
     /// </summary>

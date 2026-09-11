@@ -10,7 +10,7 @@ public class PlayerWhoAmIRequest : HttpRequestBase<Dictionary<string, PlayerInfo
     /// <summary>
     /// Creates a new request to get the identity of the authenticated player.
     /// </summary>
-    public PlayerWhoAmIRequest() 
+    public PlayerWhoAmIRequest()
         : base(HttpMethod.Get, "/v3/player/whoami")
     {
     }

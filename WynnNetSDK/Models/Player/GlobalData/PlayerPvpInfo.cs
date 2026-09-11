@@ -12,7 +12,7 @@ public class PlayerPvpInfo
     /// </summary>
     [JsonPropertyName("kills")]
     public int Kills { get; set; }
-    
+
     /// <summary>
     /// The total number of PvP deaths.
     /// </summary>

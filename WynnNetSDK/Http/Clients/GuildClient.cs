@@ -16,7 +16,7 @@ public class GuildClient : HttpClientBase
     /// <param name="client">The HTTP client used to send requests.</param>
     /// <param name="cacheManager">An optional cache manager for storing responses.</param>
     public GuildClient(IWynnHttpClient client, ICacheManager? cacheManager = null) : base(client, cacheManager) { }
-    
+
     /// <summary>
     /// Gets detailed information about a guild by its name.
     /// </summary>
@@ -25,7 +25,7 @@ public class GuildClient : HttpClientBase
     /// <returns>Detailed information about the matching guild.</returns>
     public Task<Result<GuildDetailedInfo, ErrorResponse>> GetByNameAsync(string query, CancellationToken cancellationToken = default)
         => ExecuteAsync(new GuildGetByNameRequest(query), TimeSpan.FromSeconds(120), cancellationToken);
-    
+
     /// <summary>
     /// Gets detailed information about a guild by its UUID.
     /// </summary>
@@ -34,7 +34,7 @@ public class GuildClient : HttpClientBase
     /// <returns>Detailed information about the matching guild.</returns>
     public Task<Result<GuildDetailedInfo, ErrorResponse>> GetByUuidAsync(string query, CancellationToken cancellationToken = default)
         => ExecuteAsync(new GuildGetByUuidRequest(query), TimeSpan.FromSeconds(120), cancellationToken);
-    
+
     /// <summary>
     /// Gets detailed information about a guild by its prefix.
     /// </summary>
@@ -43,7 +43,7 @@ public class GuildClient : HttpClientBase
     /// <returns>Detailed information about the matching guild.</returns>
     public Task<Result<GuildDetailedInfo, ErrorResponse>> GetByPrefixAsync(string query, CancellationToken cancellationToken = default)
         => ExecuteAsync(new GuildGetPrefixRequest(query), TimeSpan.FromSeconds(120), cancellationToken);
-    
+
     /// <summary>
     /// Lists all guilds with optional filtering by identifier type.
     /// </summary>
@@ -51,8 +51,8 @@ public class GuildClient : HttpClientBase
     /// <param name="cancellationToken">A token to cancel the request.</param>
     /// <returns>A dictionary mapping guild names to guild result data.</returns>
     public Task<Result<Dictionary<string, GuildResult>, ErrorResponse>> ListAsync(EIdentifier? identifier = null, CancellationToken cancellationToken = default)
-        => ExecuteAsync(new GuildListRequest(identifier),  TimeSpan.FromHours(1), cancellationToken);
-    
+        => ExecuteAsync(new GuildListRequest(identifier), TimeSpan.FromHours(1), cancellationToken);
+
     /// <summary>
     /// Lists all available guild seasons.
     /// </summary>
@@ -60,7 +60,7 @@ public class GuildClient : HttpClientBase
     /// <returns>A dictionary mapping season identifiers to season data.</returns>
     public Task<Result<Dictionary<string, GuildSeason>, ErrorResponse>> ListSeasonsAsync(CancellationToken cancellationToken = default)
         => ExecuteAsync(new GuildListSeasonsRequest(), TimeSpan.FromMinutes(10), cancellationToken);
-    
+
     /// <summary>
     /// Lists all guild territories on the map.
     /// </summary>

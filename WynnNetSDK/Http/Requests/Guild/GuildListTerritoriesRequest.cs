@@ -10,7 +10,7 @@ public class GuildListTerritoriesRequest : HttpRequestBase<Dictionary<string, Gu
     /// <summary>
     /// Creates a new request to list all guild territories.
     /// </summary>
-    public GuildListTerritoriesRequest() 
+    public GuildListTerritoriesRequest()
         : base(HttpMethod.Get, "/v3/guild/list/territory")
     {
     }

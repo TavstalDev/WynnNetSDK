@@ -12,13 +12,13 @@ public class Sprite
     /// </summary>
     [JsonPropertyName("format")]
     public string Format { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The name of the sprite.
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The value data for the sprite.
     /// </summary>

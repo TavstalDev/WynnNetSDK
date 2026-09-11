@@ -81,4 +81,4 @@ namespace Tavstal.WynnNetSDK.Serialization;
 [JsonSerializable(typeof(Dictionary<string, LeaderboardEntry>))]
 [JsonSerializable(typeof(Dictionary<string, List<AbilityMap>>))]
 [JsonSerializable(typeof(SearchResult))]
-public partial class WynnNetSDKJsonContext : JsonSerializerContext;
+public partial class WynnSdkJsonContext : JsonSerializerContext;

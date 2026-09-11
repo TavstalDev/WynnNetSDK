@@ -49,7 +49,7 @@ public class Ability
     /// The IDs of abilities that this ability connects to.
     /// </summary>
     [JsonPropertyName("links")]
-    public List<string> Links {  get; set; } = [];
+    public List<string> Links { get; set; } = [];
 
     /// <summary>
     /// The IDs of abilities that this ability locks when taken.

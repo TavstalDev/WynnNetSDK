@@ -13,37 +13,37 @@ public class MapGatherNode
     /// </summary>
     [JsonPropertyName("x")]
     public int X { get; set; }
-    
+
     /// <summary>
     /// The Y coordinate of the gather node.
     /// </summary>
     [JsonPropertyName("y")]
     public int Y { get; set; }
-    
+
     /// <summary>
     /// The Z coordinate of the gather node.
     /// </summary>
     [JsonPropertyName("z")]
     public int Z { get; set; }
-    
+
     /// <summary>
     /// The angle of the gather node in degrees.
     /// </summary>
     [JsonPropertyName("angle")]
     public int Angle { get; set; }
-    
+
     /// <summary>
     /// The shape type of the gather node.
     /// </summary>
     [JsonPropertyName("type")]
     public EGatherNode Type { get; set; }
-    
+
     /// <summary>
     /// The resource name of the gather node.
     /// </summary>
     [JsonPropertyName("resource")]
     public string Resource { get; set; } = string.Empty;
-    
+
     /// <summary>
     /// The required level to gather from this node.
     /// </summary>
