@@ -73,7 +73,7 @@ The solution has two projects:
   - `Http/Clients/` — the public client classes (Player, Guild, Items, etc.).
   - `Http/Requests/` — one request class per HTTP endpoint.
   - `Models/` — the data models for the API responses.
-  - `Serialization/` — source-generated JSON serialization (`WynnNetSDKJsonContext`).
+  - `Serialization/` — source-generated JSON serialization (`WynnSdkJsonContext`).
   - `Caching/` — the `ICacheManager` interface.
 - **WynnNetSdk.Tests** — the test project.
 
@@ -82,7 +82,7 @@ The solution has two projects:
 1. Create a request class in `Http/Requests/<Area>/` that inherits from `HttpRequestBase<T>`.
 2. Add the return model in `Models/` if it does not exist yet.
 3. If the model is new, register it in
-   `Serialization/WynnNetSDKJsonContext.cs` with a `[JsonSerializable]` attribute.
+   `Serialization/WynnSdkJsonContext.cs` with a `[JsonSerializable]` attribute.
 4. Add a method to the matching client in `Http/Clients/`.
 5. Add a test for the new method.
 
