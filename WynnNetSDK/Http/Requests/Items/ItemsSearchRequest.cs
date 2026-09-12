@@ -1,7 +1,5 @@
-using System.Net.Http.Json;
 using Tavstal.WynnNetSDK.Http.Requests.Items.Bodies;
 using Tavstal.WynnNetSDK.Models.Items.Responses;
-using Tavstal.WynnNetSDK.Serialization;
 
 namespace Tavstal.WynnNetSDK.Http.Requests.Items;
 
