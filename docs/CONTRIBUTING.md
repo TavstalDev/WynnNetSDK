@@ -1,7 +1,6 @@
 # Contributing to WynnNetSDK
 
-Thank you for your interest in helping with this project. This guide explains how to contribute in a
-simple and clear way.
+Thank you for your interest in helping with this project. This guide explains how to contribute.
 
 ---
 
@@ -113,11 +112,25 @@ Before you open a pull request, please check:
 - [ ] No secrets or tokens are committed.
 - [ ] The branch is up to date with `master`.
 
-The maintainers will review your PR. Please be patient and open to feedback.
+---
+
+## AI usage
+
+This policy applies to pull requests from external contributors.
+
+- **AI-generated documentation** — accepted, as long as a human reviews it.
+- **AI-generated code** — not accepted. This means code written in bulk by an AI, like a whole
+  method or file pasted from a chatbot.
+- **AI-suggested fixes** — these are in the gray zone. A suggestion is a small edit, like inline
+  autocomplete or a short fix (up to roughly one method). A human must review it and test it before
+  merging.
+- **Gray-zone disclosure** — if your pull request contains gray-zone fixes, mention it in the PR
+  description so reviewers know what to check closely.
+- **Testing** — gray-zone fixes are only mergeable when the full test suite passes. Please add a
+  new test when it makes sense.
 
 ---
 
 ## Questions?
 
-If you need help, open an [issue](https://github.com/TavstalDev/WynnNetSDK/issues) and ask. We are
-happy to guide you.
+If you need help, open an [issue](https://github.com/TavstalDev/WynnNetSDK/issues) and ask.
