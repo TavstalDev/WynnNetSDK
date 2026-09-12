@@ -28,9 +28,9 @@ public class WynnEnvironment
     /// <param name="token">The API token to use.</param>
     public WynnEnvironment(string baseUrl, string token)
     {
-        if (string.IsNullOrEmpty(baseUrl))
+        if (string.IsNullOrWhiteSpace(baseUrl))
             throw new ArgumentException("Base URL cannot be null or empty.", nameof(baseUrl));
-        if (string.IsNullOrEmpty(token))
+        if (string.IsNullOrWhiteSpace(token))
             throw new ArgumentException("Token cannot be null or empty.", nameof(token));
 
         BaseUrl = baseUrl;
