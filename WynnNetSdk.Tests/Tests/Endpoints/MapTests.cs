@@ -1,6 +1,7 @@
 using System.Net;
 using Tavstal.WynnNetSDK.Http.Requests.Map;
 using Tavstal.WynnNetSdk.Tests.Helpers;
+using Tavstal.WynnNetSdk.Tests.Models;
 using Xunit.Abstractions;
 
 namespace Tavstal.WynnNetSdk.Tests.Tests.Endpoints;

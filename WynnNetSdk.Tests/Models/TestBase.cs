@@ -1,7 +1,6 @@
-using Tavstal.WynnNetSdk.Tests.Models;
 using Xunit.Abstractions;
 
-namespace Tavstal.WynnNetSdk.Tests.Tests;
+namespace Tavstal.WynnNetSdk.Tests.Models;
 
 public abstract class TestBase
 {

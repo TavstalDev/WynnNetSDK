@@ -2,6 +2,7 @@ using System.Net;
 using Tavstal.WynnNetSDK.Http.Requests.Classes;
 using Tavstal.WynnNetSDK.Models.Classes;
 using Tavstal.WynnNetSdk.Tests.Helpers;
+using Tavstal.WynnNetSdk.Tests.Models;
 using Xunit.Abstractions;
 
 namespace Tavstal.WynnNetSdk.Tests.Tests.Endpoints;

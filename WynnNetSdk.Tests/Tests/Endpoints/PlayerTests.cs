@@ -3,6 +3,7 @@ using Tavstal.WynnNetSDK.Http.Requests.Player;
 using Tavstal.WynnNetSDK.Models.Abilities;
 using Tavstal.WynnNetSDK.Models.Common.Enums;
 using Tavstal.WynnNetSdk.Tests.Helpers;
+using Tavstal.WynnNetSdk.Tests.Models;
 using Xunit.Abstractions;
 
 namespace Tavstal.WynnNetSdk.Tests.Tests.Endpoints;
