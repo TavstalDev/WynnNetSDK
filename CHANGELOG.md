@@ -9,13 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details>
 <summary>In development changes</summary>
 
-</details>
-
-## [1.0.0] - 2026-09-09
-
-<details>
-<summary>Initial public release</summary>
-
 ### Added
 
 - **Core clients and requests** for all Wynncraft API areas: Ability, Classes, Guild, Items, Leaderboard, Map, News, Player, Recipes, and Search
