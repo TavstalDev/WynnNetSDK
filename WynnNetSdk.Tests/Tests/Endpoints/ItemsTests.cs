@@ -22,7 +22,7 @@ public class ItemsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - List Items from Database")]
-    public async Task Items_List()
+    public async Task List()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -44,7 +44,7 @@ public class ItemsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - List Item Sets")]
-    public async Task Items_ListSets()
+    public async Task ListSets()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -66,7 +66,7 @@ public class ItemsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 3 - 200 - Quick Search Items")]
-    public async Task Items_QuickSearch()
+    public async Task QuickSearch()
     {
         var resource = _resources[2];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -88,7 +88,7 @@ public class ItemsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 4 - 200 - Search Items with Body")]
-    public async Task Items_Search()
+    public async Task Search()
     {
         var resource = _resources[3];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -114,7 +114,7 @@ public class ItemsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 5 - 200 - Get Item Filter Metadata")]
-    public async Task Items_GetMetadata()
+    public async Task GetMetadata()
     {
         var resource = _resources[4];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -137,7 +137,7 @@ public class ItemsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 6 - 200 - Get Static Item Metadata")]
-    public async Task Items_GetStaticMetadata()
+    public async Task GetStaticMetadata()
     {
         var resource = _resources[5];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

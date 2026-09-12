@@ -22,7 +22,7 @@ public class GuildTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - Get Guild by Name")]
-    public async Task Guild_GetByName()
+    public async Task GetByName()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -44,7 +44,7 @@ public class GuildTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - List Guilds")]
-    public async Task Guild_List()
+    public async Task List()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -66,7 +66,7 @@ public class GuildTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 3 - 200 - Get Guild by UUID")]
-    public async Task Guild_GetByUuid()
+    public async Task GetByUuid()
     {
         var resource = _resources[2];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -85,7 +85,7 @@ public class GuildTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 4 - 200 - Get Guild by Prefix")]
-    public async Task Guild_GetByPrefix()
+    public async Task GetByPrefix()
     {
         var resource = _resources[3];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -104,7 +104,7 @@ public class GuildTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 5 - 200 - List Guild Seasons")]
-    public async Task Guild_ListSeasons()
+    public async Task ListSeasons()
     {
         var resource = _resources[4];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -126,7 +126,7 @@ public class GuildTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 6 - 200 - List Guild Territories")]
-    public async Task Guild_ListTerritories()
+    public async Task ListTerritories()
     {
         var resource = _resources[5];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

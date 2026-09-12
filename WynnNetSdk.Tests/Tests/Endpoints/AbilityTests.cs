@@ -19,7 +19,7 @@ public class AbilityTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - Get Class Ability Tree")]
-    public async Task Ability_GetClassTree()
+    public async Task GetClassTree()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -46,7 +46,7 @@ public class AbilityTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - Get Class Ability Tree Map")]
-    public async Task Ability_GetClassTreeMap()
+    public async Task GetClassTreeMap()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -70,7 +70,7 @@ public class AbilityTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 3 - 200 - Get Class Aspects")]
-    public async Task Ability_GetClassAspects()
+    public async Task GetClassAspects()
     {
         var resource = _resources[2];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

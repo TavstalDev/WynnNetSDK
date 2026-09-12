@@ -18,7 +18,7 @@ public class ClassesTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - List All Classes")]
-    public async Task Classes_List()
+    public async Task List()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -40,7 +40,7 @@ public class ClassesTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - Get Class by Type")]
-    public async Task Classes_Get()
+    public async Task Get()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

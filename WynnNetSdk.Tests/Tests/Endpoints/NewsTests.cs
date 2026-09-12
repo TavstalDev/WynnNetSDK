@@ -20,7 +20,7 @@ public class NewsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - List News Articles")]
-    public async Task News_List()
+    public async Task List()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -42,7 +42,7 @@ public class NewsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - Get Legacy News")]
-    public async Task News_GetLegacy()
+    public async Task GetLegacy()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -64,7 +64,7 @@ public class NewsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 3 - 200 - List News Videos")]
-    public async Task News_ListVideos()
+    public async Task ListVideos()
     {
         var resource = _resources[2];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -83,7 +83,7 @@ public class NewsTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 4 - 200 - Fetch News Article")]
-    public async Task News_Fetch()
+    public async Task Fetch()
     {
         var resource = _resources[3];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

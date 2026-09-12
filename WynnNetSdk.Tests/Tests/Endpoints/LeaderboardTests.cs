@@ -17,7 +17,7 @@ public class LeaderboardTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - List Leaderboard Types")]
-    public async Task Leaderboard_ListTypes()
+    public async Task ListTypes()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -39,7 +39,7 @@ public class LeaderboardTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - Get Leaderboard")]
-    public async Task Leaderboard_Get()
+    public async Task Get()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

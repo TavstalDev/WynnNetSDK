@@ -1,6 +1,5 @@
 using System.Net;
 using Tavstal.WynnNetSDK.Http.Requests.Player;
-using Tavstal.WynnNetSDK.Models.Abilities;
 using Tavstal.WynnNetSDK.Models.Common.Enums;
 using Tavstal.WynnNetSdk.Tests.Helpers;
 using Tavstal.WynnNetSdk.Tests.Models;
@@ -23,7 +22,7 @@ public class PlayerTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - Get Player Profile")]
-    public async Task Player_GetProfile()
+    public async Task GetProfile()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -45,7 +44,7 @@ public class PlayerTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - List Online Players")]
-    public async Task Player_ListOnline()
+    public async Task ListOnline()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -65,7 +64,7 @@ public class PlayerTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 3 - 200 - List Player Characters")]
-    public async Task Player_ListCharacters()
+    public async Task ListCharacters()
     {
         var resource = _resources[2];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -87,7 +86,7 @@ public class PlayerTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 4 - 200 - Who Am I")]
-    public async Task Player_WhoAmI()
+    public async Task WhoAmI()
     {
         var resource = _resources[3];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -109,7 +108,7 @@ public class PlayerTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 5 - 200 - Get Player Character")]
-    public async Task Player_GetCharacter()
+    public async Task GetCharacter()
     {
         var resource = _resources[4];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -129,7 +128,7 @@ public class PlayerTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 6 - 200 - Get Player Ability Map")]
-    public async Task Player_GetAbilityMap()
+    public async Task GetAbilityMap()
     {
         var resource = _resources[5];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

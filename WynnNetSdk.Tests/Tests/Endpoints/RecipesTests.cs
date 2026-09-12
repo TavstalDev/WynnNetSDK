@@ -18,7 +18,7 @@ public class RecipesTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - List Recipes")]
-    public async Task Recipes_List()
+    public async Task List()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -40,7 +40,7 @@ public class RecipesTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - Search Recipes with Body")]
-    public async Task Recipes_Search()
+    public async Task Search()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);

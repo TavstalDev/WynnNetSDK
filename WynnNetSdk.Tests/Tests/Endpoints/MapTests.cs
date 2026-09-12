@@ -23,7 +23,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 1 - 200 - List Camps")]
-    public async Task Map_ListCamps()
+    public async Task ListCamps()
     {
         var resource = _resources[0];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -45,7 +45,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 2 - 200 - List World Events")]
-    public async Task Map_ListEvents()
+    public async Task ListEvents()
     {
         var resource = _resources[1];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -67,7 +67,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 3 - 200 - List Gathering Nodes")]
-    public async Task Map_ListGatheringNodes()
+    public async Task ListGatheringNodes()
     {
         var resource = _resources[2];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -89,7 +89,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 4 - 200 - List Loot Pools")]
-    public async Task Map_ListLootPools()
+    public async Task ListLootPools()
     {
         var resource = _resources[3];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -111,7 +111,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 5 - 200 - List Markers")]
-    public async Task Map_ListMarkers()
+    public async Task ListMarkers()
     {
         var resource = _resources[4];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -133,7 +133,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 6 - 200 - List Player Locations")]
-    public async Task Map_ListPlayerLocations()
+    public async Task ListPlayerLocations()
     {
         var resource = _resources[5];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -155,7 +155,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 7 - 200 - List Quests")]
-    public async Task Map_ListQuests()
+    public async Task ListQuests()
     {
         var resource = _resources[6];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
@@ -173,7 +173,7 @@ public class MapTests : TestBase
     }
 
     [Fact(DisplayName = "Sample 8 - 200 - List Raids")]
-    public async Task Map_ListRaids()
+    public async Task ListRaids()
     {
         var resource = _resources[7];
         var client = FakeHttpHelpers.CreateClient(resource.Responder);
