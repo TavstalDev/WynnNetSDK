@@ -103,8 +103,8 @@ public abstract class HttpRequestBase
     /// <returns>A unique key built from the method, URL, and body.</returns>
     public string GetKey()
     {
-        if (ContentJsonTypeInfo != null)
-            return $"{Method}:{RequestUri}:{JsonSerializer.Serialize(Content, ContentJsonTypeInfo!)}";
+        if (ContentJsonTypeInfo != null && Content is JsonContent jsonContent)
+            return $"{Method}:{RequestUri}:{JsonSerializer.Serialize(jsonContent.Value, ContentJsonTypeInfo!)}";
         return $"{Method}:{RequestUri}";
     }
 }
