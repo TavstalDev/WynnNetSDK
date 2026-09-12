@@ -1,22 +1,22 @@
 # WynnNetSDK
 
-**WynnNetSDK** is a modern C# library for .NET. It helps you connect your .NET application to the
-[Wynncraft API](https://docs.wynncraft.com/welcome). It handles the HTTP calls, JSON serialization, retries,
-rate limits, and caching for you, so you can focus on your own code.
+**WynnNetSDK** is a C# library for .NET. It connects your .NET app to the
+[Wynncraft API](https://docs.wynncraft.com/welcome). It handles the HTTP calls, JSON serialization,
+retries, rate limits, and caching for you.
 
-It is built for **.NET 8**, **.NET 9**, and **.NET 10**.
+It targets **.NET 8**, **.NET 9**, and **.NET 10**.
 
 ---
 
 ## Features
 
-- **All Wynncraft endpoints** in one place: players, guilds, items, classes, maps, news, leaderboards, recipes, abilities and search.
-- **Result pattern**: every method returns a `Result<T, ErrorResponse>` instead of throwing exceptions.
-- **Built-in retry logic**: the SDK retries failed requests and rate-limited requests automatically.
-- **Response caching**: optional `ICacheManager` with built-in default cache durations per endpoint.
-- **Rate limit guard**: the SDK tracks the remaining requests per minute (RPM) and throws `RateLimitException` when you hit the limit.
-- **Token support**: pass your Wynncraft API token to increase your rate limits.
-- **Source-generated JSON**: fast and trim-safe serialization with `System.Text.Json`.
+- Covers all Wynncraft API areas: players, guilds, items, classes, maps, news, leaderboards, recipes, abilities, and search.
+- Returns `Result<T, ErrorResponse>` instead of throwing exceptions.
+- Retries failed requests and rate-limited requests for you.
+- Optional caching with `ICacheManager`. Each endpoint has a default cache time.
+- Keeps track of your requests per minute and throws `RateLimitException` when you run out.
+- Supports API tokens to get higher rate limits.
+- Uses source-generated JSON with `System.Text.Json`, so it is fast and trim-safe.
 
 ---
 
@@ -48,7 +48,7 @@ var environment = new WynnEnvironment(token: "YOUR_API_TOKEN");
 // 2. Create the HTTP client.
 using var client = new WynnHttpClient(environment);
 
-// 3. Call the API and check the Result.
+// 3. Call the API and check the result.
 var result = await client.Player.GetProfileAsync("Tavstal");
 if (result.IsSuccess)
 {
@@ -60,19 +60,20 @@ else
 }
 ```
 
-> **Tip**: This SDK requires an API token (the `WynnEnvironment` constructor rejects empty tokens). You can request a token from [Account Dashboard](https://docs.wynncraft.com/authentication#creating-tokens).
+> **Tip**: this SDK needs an API token. The `WynnEnvironment` constructor rejects empty tokens.
+> You can get a token from the [Account Dashboard](https://docs.wynncraft.com/authentication#creating-tokens).
 
 ---
 
 ## How the Result pattern works
 
-Every method returns a `Result<T, ErrorResponse>`. It has two important properties:
+Every method returns a `Result<T, ErrorResponse>`. It has three useful properties:
 
-- `IsSuccess` — `true` when the request worked, `false` when it failed.
-- `Value` — the data you asked for (only available when `IsSuccess` is `true`).
-- `Error` — the error details (only available when `IsSuccess` is `false`).
+- `IsSuccess` — `true` when the request worked.
+- `Value` — the data you asked for. Only set when `IsSuccess` is `true`.
+- `Error` — the error details. Only set when `IsSuccess` is `false`.
 
-You can read these properties directly, or use the helper methods:
+You can check these properties directly, or use the helper methods:
 
 ```csharp
 var result = await client.Player.GetProfileAsync("Tavstal");
@@ -87,7 +88,7 @@ else
     var error = result.Error;
 }
 
-// Option 2: use Switch for actions that return void
+// Option 2: use Switch when you only run actions
 result.Switch(
     onSuccess: player => Console.WriteLine($"Hello {player.Username}!"),
     onFailure: error => Console.WriteLine($"Something went wrong: {error.Message}")
@@ -104,7 +105,7 @@ var message = result.Match(
 
 ## Configuration
 
-You can customize the client with `WynnClientOptions`:
+You can change how the client works with `WynnClientOptions`:
 
 ```csharp
 var options = new WynnClientOptions
@@ -124,24 +125,24 @@ using var client = new WynnHttpClient(new WynnEnvironment("YOUR_API_TOKEN"), opt
 
 ### All options
 
-| Option                         | Type         | Default     | What it does                                           |
-|--------------------------------|--------------|-------------|--------------------------------------------------------|
-| `ApplicationName`              | `string?`    | `null`      | Name used in the `User-Agent` header.                  |
-| `Timeout`                      | `TimeSpan`   | 120 seconds | Request timeout.                                       |
-| `MaxResponseContentBufferSize` | `long`       | 2 MB        | Max size of the response content buffer.               |
-| `MaxConnectionsPerServer`      | `int`        | 10          | Max open connections per server.                       |
-| `MaxRetries`                   | `int`        | 3           | Number of retries for failed or rate-limited requests. |
-| `RetryDelay`                   | `TimeSpan`   | 1 second    | Delay between retries.                                 |
-| `EnableCompression`            | `bool`       | `true`      | Enables gzip/deflate compression.                      |
-| `RetryOnRateLimit`             | `bool`       | `true`      | Retries when the API returns `HTTP 429`.               |
-| `Proxy`                        | `IWebProxy?` | `null`      | Optional HTTP proxy.                                   |
+| Option | Type | Default | What it does |
+|---|---|---|---|
+| `ApplicationName` | `string?` | `null` | Name used in the `User-Agent` header. |
+| `Timeout` | `TimeSpan` | 120 seconds | Request timeout. |
+| `MaxResponseContentBufferSize` | `long` | 2 MB | Max size of the response content buffer. |
+| `MaxConnectionsPerServer` | `int` | 10 | Max open connections per server. |
+| `MaxRetries` | `int` | 3 | Number of retries for failed or rate-limited requests. |
+| `RetryDelay` | `TimeSpan` | 1 second | Delay between retries. |
+| `EnableCompression` | `bool` | `true` | Enables gzip/deflate compression. |
+| `RetryOnRateLimit` | `bool` | `true` | Retries when the API returns `HTTP 429`. |
+| `Proxy` | `IWebProxy?` | `null` | Optional HTTP proxy. |
 
 ---
 
 ## Caching
 
-Responses are cached **only if** you provide an `ICacheManager`. Without one, the SDK makes a real
-HTTP request every time.
+Responses are cached **only if** you give the client an `ICacheManager`. Without one, the SDK makes
+a real HTTP request every time.
 
 To enable caching, implement the `ICacheManager` interface:
 
@@ -180,8 +181,8 @@ var cache = new MemoryCacheManager();
 using var client = new WynnHttpClient(new WynnEnvironment("YOUR_API_TOKEN"), cacheManager: cache);
 ```
 
-Each endpoint has a built-in default cache duration. For example, player profiles are cached for
-2 minutes, while the list of item materials is cached for 1 hour. See the
+Each endpoint has a default cache time. For example, player profiles are cached for 2 minutes,
+while the list of item materials is cached for 1 hour. See the
 [API reference](https://github.com/TavstalDev/WynnNetSDK/blob/master/docs/API_REFERENCE.md) for the full list.
 
 ---
@@ -231,21 +232,21 @@ if (articles.IsSuccess)
         Console.WriteLine(article.Title);
 ```
 
-> **Note**: the classes above assume you added the `using` statements for the models. For example:
+> **Note**: the examples above assume you added the needed `using` statements. For example:
 > `using Tavstal.WynnNetSDK.Models.Items.Enums;` and `using Tavstal.WynnNetSDK.Models.News.Enums;`.
 
 ---
 
 ## Error handling
 
-Methods return errors instead of throwing. The `ErrorResponse` model has four fields:
+Methods return errors instead of throwing them. The `ErrorResponse` model has four fields:
 
 - `Name` — a short name for the error.
 - `Message` — a human-readable description of the error.
 - `Code` — the error code, when the API provides one.
 - `Objects` — extra details about the error, when available.
 
-One exception can be thrown: `RateLimitException`, when the SDK detects you used all your requests
+Only one exception can be thrown: `RateLimitException`. It happens when you used all your requests
 for the current minute. It has an `AvailableAt` property that tells you when the limit resets.
 
 ```csharp
@@ -263,8 +264,10 @@ catch (RateLimitException ex)
 
 ## License
 
-This project is licensed under the **MIT License**. See the [LICENSE](https://github.com/TavstalDev/WynnNetSDK/blob/master/LICENSE) file for more details.
+This project is licensed under the **MIT License**. See the
+[LICENSE](https://github.com/TavstalDev/WynnNetSDK/blob/master/LICENSE) file for more details.
 
 ## Contact
 
-For issues or feature requests, please use the [GitHub issue tracker](https://github.com/TavstalDev/WynnNetSDK/issues).
+For issues or feature requests, use the
+[GitHub issue tracker](https://github.com/TavstalDev/WynnNetSDK/issues).

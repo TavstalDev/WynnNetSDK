@@ -1,8 +1,8 @@
 # WynnNetSDK API Reference
 
-This page describes every client, its methods, the parameters and the types they return.
+This page lists every client, its methods, their parameters, and the types they return.
 
-All methods are **async** and return a `Result<T, ErrorResponse>`.
+All methods are async. They return `Result<T, ErrorResponse>`.
 
 ---
 
@@ -37,19 +37,19 @@ using Tavstal.WynnNetSDK.Http;
 var client = new WynnHttpClient(new WynnEnvironment(token: "YOUR_API_TOKEN"));
 ```
 
-The token is required: the `WynnEnvironment` constructor rejects empty tokens. The token is also sent
-as a `Bearer` authorization header on every request.
+A token is required. The `WynnEnvironment` constructor throws if the token is empty. The token is
+sent as a `Bearer` authorization header on every request.
 
-The `WynnHttpClient` gives you one property for each area of the API:
+`WynnHttpClient` gives you one property for each area of the API:
 
 `Ability`, `Classes`, `Guild`, `Items`, `Leaderboard`, `Map`, `News`, `Player`, `Recipes`, `Search`.
 
-You can also implement `IWynnHttpClient` if you want full control. The `WynnHttpClient` also
-implements `IDisposable`, so remember to dispose it when you are done.
+You can also implement `IWynnHttpClient` if you want full control. `WynnHttpClient` implements
+`IDisposable`, so dispose it when you finish using it.
 
-> **Cache durations:** each method below shows a "Cache" value. This is how long the SDK keeps the
-> response in memory **if you passed an `ICacheManager`**. Without a cache manager, every call makes
-> a real HTTP request.
+> **Cache durations:** every method below shows a "Cache" value. It is how long the SDK keeps the
+> response in memory **if you pass an `ICacheManager`**. Without a cache manager, every call makes a
+> real HTTP request.
 
 ---
 
@@ -198,7 +198,7 @@ var articles = await client.News.ListAsync(EArticleType.BLOG, page: 1);
 var profile = await client.Player.GetProfileAsync("Tavstal");
 ```
 
-> `WhoAmIAsync` requires a valid API token. Without a token the endpoint usually returns an error.
+> `WhoAmIAsync` needs a valid API token. Without a token the endpoint usually returns an error.
 
 ---
 
@@ -239,8 +239,8 @@ var search = await client.Search.SearchAsync("Tavstal", onlyOneResult: true);
 
 | Member | Type | Description |
 |---|---|---|
-| `IsSuccess` | `bool` | `true` if the request worked and `Value` is available. |
-| `IsError` | `bool` | `true` if the request failed and `Error` is available. |
+| `IsSuccess` | `bool` | `true` when the request worked and `Value` is available. |
+| `IsError` | `bool` | `true` when the request failed and `Error` is available. |
 | `Value` | `T?` | The data returned by the API. |
 | `Error` | `TError?` | The error returned by the API. |
 | `Match(onSuccess, onFailure)` | `TResult` | Runs one of the two callbacks and returns its result. |
@@ -282,9 +282,8 @@ Common enums used across methods:
 | `EClass` | `ARCHER`, `WARRIOR`, `ASSASSIN`, `MAGE`, `SHAMAN` |
 | `EArticleType` | `BLOG`, `EVENT`, `GIVEAWAY`, `ARTICLE`, `POLL` |
 
-The library also contains many more enums used by the models, such as item types (`EItemType`),
-tiers (`ETier`), majors (`EMajorId`), and so on. You can find them under
-`Tavstal.WynnNetSDK.Models.*.Enums`.
+The models use many more enums, like item types (`EItemType`), tiers (`ETier`), majors
+(`EMajorId`), and so on. You can find them under `Tavstal.WynnNetSDK.Models.*.Enums`.
 
 ### Request body types
 
