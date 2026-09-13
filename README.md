@@ -17,7 +17,7 @@ It targets **.NET 8**, **.NET 9**, and **.NET 10**.
 ## Features
 
 - Covers all Wynncraft API areas: players, guilds, items, classes, maps, news, leaderboards, recipes, abilities, and search.
-- Returns `Result<T, ErrorResponse>` instead of throwing exceptions.
+- Returns `Result<T, ErrorResponse>` instead of throwing exceptions. Only `RateLimitException` and cancellation are thrown.
 - Retries failed requests and rate-limited requests for you.
 - Optional caching with `ICacheManager`. Each endpoint has a default cache time.
 - Keeps track of your requests per minute and throws `RateLimitException` when you run out.
@@ -252,8 +252,12 @@ Methods return errors instead of throwing them. The `ErrorResponse` model has fo
 - `Code` — the error code, when the API provides one.
 - `Objects` — extra details about the error, when available.
 
-Only one exception can be thrown: `RateLimitException`. It happens when you used all your requests
-for the current minute. It has an `AvailableAt` property that tells you when the limit resets.
+HTTP status errors, network failures, and deserialization failures all come back as
+`Result.Error` — they are never thrown. Two exceptions **are** thrown:
+
+- `RateLimitException` — when you used all your requests for the current minute. It has an
+  `AvailableAt` property that tells you when the limit resets.
+- `OperationCanceledException` — when you cancel the request with a `CancellationToken`.
 
 ```csharp
 try
@@ -271,7 +275,7 @@ catch (RateLimitException ex)
 ## API reference
 
 See [docs/API_REFERENCE.md](docs/API_REFERENCE.md) for the full list of clients, methods,
-parameters, and models.
+parameters, and core types.
 
 ---
 
