@@ -33,8 +33,12 @@ public abstract class HttpClientBase : IClient
     /// Returns true if there are remaining requests available in the current minute.
     /// </summary>
     /// <returns>True if the client can still make requests.</returns>
-    public bool CanExecute() =>
-        _remainingRpm > 0;
+    public bool CanExecute()
+    {
+        if (DateTime.UtcNow >= _nextReset)
+            ResetRpm();
+        return _remainingRpm > 0;
+    }
 
     /// <summary>
     /// Resets the request counter so a new minute of requests can begin.
