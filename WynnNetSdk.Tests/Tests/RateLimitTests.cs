@@ -1,4 +1,5 @@
 using System.Net;
+using System.Reflection;
 using System.Text;
 using Tavstal.WynnNetSDK.Exceptions;
 using Tavstal.WynnNetSDK.Http;
@@ -59,6 +60,26 @@ public class RateLimitTests
         player.ResetRpm();
 
         player.CanExecute().Should().BeTrue();
+        var result = await player.GetProfileAsync("Nepmia");
+        result.IsSuccess.Should().BeTrue();
+    }
+
+    [Fact(DisplayName = "200 - Automatically re-arms the counter when the rate-limit window passes")]
+    public async Task AutoResetsAfterWindowPasses()
+    {
+        var player = CreateClient().Player;
+        while (player.CanExecute())
+            await player.GetProfileAsync("Nepmia");
+
+        player.CanExecute().Should().BeFalse();
+
+        // Simulate the rate-limit window having passed.
+        var nextReset = typeof(HttpClientBase).GetField("_nextReset",
+            BindingFlags.Instance | BindingFlags.NonPublic)!;
+        nextReset.SetValue(player, DateTime.UtcNow.AddSeconds(-1));
+
+        player.CanExecute().Should().BeTrue();
+
         var result = await player.GetProfileAsync("Nepmia");
         result.IsSuccess.Should().BeTrue();
     }
