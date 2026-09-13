@@ -10,10 +10,9 @@ namespace Tavstal.WynnNetSDK.Http;
 /// </summary>
 public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
 {
-    private readonly SemaphoreSlim _semaphore = new(1, 1);
-    private HttpClient _httpClient;
-    private WynnEnvironment _environment;
-    private WynnClientOptions _options;
+    private readonly HttpClient _httpClient;
+    private readonly WynnEnvironment _environment;
+    private readonly WynnClientOptions _options;
 
     /// <summary>Client for ability-related API endpoints.</summary>
     public AbilityClient Ability { get; private set; }
@@ -35,25 +34,6 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
     public RecipesClient Recipes { get; private set; }
     /// <summary>Client for the search API endpoint.</summary>
     public SearchClient Search { get; private set; }
-
-    // Used by the M31.FluentApi generated builder.
-    // ReSharper disable once UnusedMember.Local
-    private WynnHttpClient()
-    {
-        _httpClient = null!;
-        _environment = null!;
-        _options = null!;
-        Ability = null!;
-        Classes = null!;
-        Guild = null!;
-        Items = null!;
-        Leaderboard = null!;
-        Map = null!;
-        News = null!;
-        Player = null!;
-        Recipes = null!;
-        Search = null!;
-    }
 
     /// <summary>
     /// Creates a new client with the given environment and optional settings.
@@ -115,7 +95,6 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
     {
         try
         {
-            _semaphore.Dispose();
             _httpClient.Dispose();
         }
         catch { /* ignored */}
