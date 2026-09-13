@@ -50,7 +50,9 @@ You can also implement `IWynnHttpClient` if you want full control. `WynnHttpClie
 
 > **Rate limiting:** the SDK tracks requests per minute **per area client** — each of the ten
 > clients (e.g. `Player`, `Guild`) has its own counter that starts at 120. When a client runs out,
-> that call throws `RateLimitException`. `IClient.ResetRpm()` (or a new minute) resets the counter.
+> that call throws `RateLimitException`. The counter re-arms automatically once the rate-limit
+> window has passed (checked lazily on the next call). You can also call `IClient.ResetRpm()` to
+> reset it early.
 
 > **Exceptions:** only `RateLimitException` and `OperationCanceledException` (when you cancel a
 > request) are thrown. HTTP status errors, network failures, and deserialization failures are
@@ -279,7 +281,7 @@ result.Match(
 
 | Property | Type | Description |
 |---|---|---|
-| `AvailableAt` | `DateTime` | When the rate limit resets and you can call the API again. |
+| `AvailableAt` | `DateTime` | The UTC time when the rate-limit window ends and requests become available again. The counter re-arms automatically on the first call after this time. |
 
 It is one of only two exceptions that can escape a call. The other is `OperationCanceledException`,
 thrown when you cancel a request with a `CancellationToken`. Everything else — HTTP status errors,
