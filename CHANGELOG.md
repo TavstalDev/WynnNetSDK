@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details>
 <summary>In development changes</summary>
 
+</details>
+
+## [1.0.0] - 2026.09.13
+<details>
+<summary>Initial release.</summary>
+
 ### Added
 
 - **Core clients and requests** for all Wynncraft API areas: Ability, Classes, Guild, Items, Leaderboard, Map, News, Player, Recipes, and Search
@@ -33,23 +39,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Contributing guidelines** (`docs/CONTRIBUTING.md`)
 - **GitHub Actions workflows** for CI builds and releases
 - **Dependabot configuration** for GitHub Actions and NuGet updates
-
-### Changed
-
-- Added SourceLink support with `Microsoft.SourceLink.GitHub` for source debugging
-- Updated ability and player character models to use `JsonElement` for icon and value properties
-- Changed leaderboard `SubType` to nullable and `Votes` to `JsonElement` for improved data handling
-- Changed `PageController.Prev` and `Next` properties to nullable integers
-- Simplified `WynnEnvironment` constructor by removing `webUrl` parameter
-- Renamed leaderboard request classes for consistency
-- Refactored ability request classes to support class aspects and trees
-- Refactored player request classes to include generic types
-
-### Fixed
-
-- Corrected spelling of 'Total' in `PlayerListOnlineResponse`
-- Fixed `Vector3` property types
-- Initialized list properties in `GuildTerritory` class
+- **Error-handling tests** for network failures and unexpected send errors (must return `Result.Error`, never throw)
+- **Rate-limit recovery test** covering automatic counter re-arming after the window passes
+- **Advanced custom requests documentation** in the API reference (`HttpRequestBase`, `SendAsync`, `IWynnHttpClient`)
+- **SourceLink support** via `Microsoft.SourceLink.GitHub` for source debugging
+- **`JsonElement`-based icon and value properties** on ability and player character models
+- **Null-safe leaderboards**: `SubType` is nullable and `Votes` is a `JsonElement`
+- **Nullable `Prev` and `Next` properties** on `PageController`
+- **Simplified `WynnEnvironment` constructor** taking the base URL and token
+- **Consistent request classes** across leaderboard, ability, and player areas (including class aspects/trees and generic player requests)
+- **Clear exception contract**: HTTP status, network, and deserialization failures are returned as `Result.Error`; only `RateLimitException` and `OperationCanceledException` can escape a call
+- **Lazy rate-limit re-arm**: the per-client RPM counter resumes automatically once the rate-limit window has passed
+- **Polished models**: corrected `Total` in `PlayerListOnlineResponse`, fixed `Vector3` property types, and initialized `GuildTerritory` list properties
 
 </details>
 
