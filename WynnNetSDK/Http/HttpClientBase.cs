@@ -70,12 +70,12 @@ public abstract class HttpClientBase : IClient
                     AvailableAt = _nextReset
                 };
 
-            var response = await _client.SendAsync(requestBase, cancellationToken);
-            if (!response.IsSuccessStatusCode)
-                return await HandleErrorAsync<T>(requestBase, response, cancellationToken);
-
             try
             {
+                var response = await _client.SendAsync(requestBase, cancellationToken);
+                if (!response.IsSuccessStatusCode)
+                    return await HandleErrorAsync<T>(requestBase, response, cancellationToken);
+                
                 var responseBody = await requestBase.GetResponseBodyAsync(response, cancellationToken);
                 if (responseBody == null)
                     return Result<T, ErrorResponse>.Failure(new ErrorResponse
@@ -94,6 +94,14 @@ public abstract class HttpClientBase : IClient
             catch (OperationCanceledException)
             {
                 throw;
+            }
+            catch (HttpRequestException ex)
+            {
+                return Result<T, ErrorResponse>.Failure(new ErrorResponse
+                {
+                    Name = $"HTTP Error, Status Code: {ex.StatusCode ?? 0}",
+                    Message = ex.Message,
+                });
             }
             catch (Exception ex)
             {
@@ -120,18 +128,38 @@ public abstract class HttpClientBase : IClient
     /// <returns>A result indicating success or failure.</returns>
     public async Task<Result<bool, ErrorResponse>> ExecuteAsync(HttpRequestBase requestBase, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default)
     {
+        if (!CanExecute())
+            throw new RateLimitException
+            {
+                AvailableAt = _nextReset
+            };
+        
         try
         {
-            if (!CanExecute())
-                throw new RateLimitException
-                {
-                    AvailableAt = _nextReset
-                };
-
             var response = await _client.SendAsync(requestBase, cancellationToken);
             if (!response.IsSuccessStatusCode)
                 return await HandleErrorAsync<bool>(requestBase, response, cancellationToken);
             return Result<bool, ErrorResponse>.Success(true);
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (HttpRequestException ex)
+        {
+            return Result<bool, ErrorResponse>.Failure(new ErrorResponse
+            {
+                Name = $"HTTP Error, Status Code: {ex.StatusCode ?? 0}",
+                Message = ex.Message,
+            });
+        }
+        catch (Exception ex)
+        {
+            return Result<bool, ErrorResponse>.Failure(new ErrorResponse
+            {
+                Name = "Unexpected error occurred while sending request.",
+                Message = ex.Message,
+            });
         }
         finally
         {
