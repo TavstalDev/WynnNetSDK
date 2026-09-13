@@ -106,7 +106,7 @@ jobs:
           tag_name: v${{ env.DLL_VERSION }}
           name: Build ${{ env.DLL_VERSION }}
           draft: false
-          prerelease: true
+          prerelease: false
           body_path: /tmp/release_body.md
           files: |
             ./artifacts/*
