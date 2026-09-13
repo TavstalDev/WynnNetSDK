@@ -163,7 +163,7 @@ public sealed class WynnHttpClient : IWynnHttpClient, IDisposable
             {
                 throw;
             }
-            catch (HttpRequestException) when (i + 1 < _options.MaxRetries)
+            catch (HttpRequestException) when (i < _options.MaxRetries)
             {
                 await Task.Delay(_options.RetryDelay, cancellationToken);
                 continue;
