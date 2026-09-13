@@ -46,8 +46,13 @@ public class WynnHttpClientTests
             return Ok();
         });
 
-        var request = new PlayerGetProfileRequest("Nepmia");
-        request.Headers["Authorization"] = "Bearer custom";
+        var request = new PlayerGetProfileRequest("Nepmia")
+        {
+            Headers =
+            {
+                ["Authorization"] = "Bearer custom"
+            }
+        };
         await client.SendAsync(request);
 
         captured!.Headers.GetValues("Authorization").Should().Contain("Bearer custom");
@@ -154,9 +159,7 @@ public class WynnHttpClientTests
         var client = FakeHttpHelpers.CreateClient(_ =>
             {
                 calls++;
-                if (calls == 1)
-                    throw new HttpRequestException("connection reset");
-                return Ok();
+                return calls == 1 ? throw new HttpRequestException("connection reset") : Ok();
             },
             new WynnClientOptions { RetryDelay = TimeSpan.Zero });
 
@@ -205,6 +208,7 @@ public class WynnHttpClientTests
         await cts.CancelAsync();
         var client = FakeHttpHelpers.CreateClient(_ => Ok());
 
+        // ReSharper disable once AccessToDisposedClosure
         Func<Task> act = () => client.SendAsync(new PlayerGetProfileRequest("Nepmia"), cts.Token);
 
         await act.Should().ThrowAsync<OperationCanceledException>();

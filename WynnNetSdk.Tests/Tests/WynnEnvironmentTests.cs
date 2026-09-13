@@ -27,6 +27,7 @@ public class WynnEnvironmentTests
     [InlineData("   ")]
     public void RejectsEmptyToken(string token)
     {
+        // ReSharper disable once ObjectCreationAsStatement - It is intentional to test the constructor's behavior with invalid input.
         Action act = () => new WynnEnvironment("https://api.wynncraft.com", token);
 
         act.Should().Throw<ArgumentException>().WithParameterName("token");
@@ -35,6 +36,7 @@ public class WynnEnvironmentTests
     [Fact(DisplayName = "N/A - Constructor rejects a null token")]
     public void RejectsNullToken()
     {
+        // ReSharper disable once ObjectCreationAsStatement - It is intentional to test the constructor's behavior with invalid input.
         Action act = () => new WynnEnvironment("https://api.wynncraft.com", null!);
 
         act.Should().Throw<ArgumentException>().WithParameterName("token");
@@ -45,6 +47,7 @@ public class WynnEnvironmentTests
     [InlineData("   ")]
     public void RejectsEmptyBaseUrl(string baseUrl)
     {
+        // ReSharper disable once ObjectCreationAsStatement - It is intentional to test the constructor's behavior with invalid input.
         Action act = () => new WynnEnvironment(baseUrl, "token123");
 
         act.Should().Throw<ArgumentException>().WithParameterName("baseUrl");

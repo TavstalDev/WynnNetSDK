@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using Tavstal.WynnNetSDK.Http;
 using Tavstal.WynnNetSDK.Http.Requests.Items.Bodies;
@@ -11,6 +12,7 @@ namespace Tavstal.WynnNetSdk.Tests.Tests;
 public class SerializationContextTests
 {
     [Fact(DisplayName = "N/A - Every request response type is registered in the JSON context")]
+    [RequiresUnreferencedCode("Uses source-generated serialization context which may not include all types if they are not referenced.")]
     public void RegistersAllResponseTypes()
     {
         var genericBase = typeof(HttpRequestBase<>);
