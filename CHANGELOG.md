@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Added SourceLink support with `Microsoft.SourceLink.GitHub` for source debugging
 - Updated ability and player character models to use `JsonElement` for icon and value properties
 - Changed leaderboard `SubType` to nullable and `Votes` to `JsonElement` for improved data handling
 - Changed `PageController.Prev` and `Next` properties to nullable integers
