@@ -25,6 +25,7 @@ All methods are async. They return `Result<T, ErrorResponse>`.
   - [ErrorResponse](#errorresponse)
   - [Enums](#enums)
   - [Request body types](#request-body-types)
+- [Advanced: custom requests](#advanced-custom-requests)
 - [Caching table](#caching-table)
 
 ---
@@ -46,6 +47,14 @@ sent as a `Bearer` authorization header on every request.
 
 You can also implement `IWynnHttpClient` if you want full control. `WynnHttpClient` implements
 `IDisposable`, so dispose it when you finish using it.
+
+> **Rate limiting:** the SDK tracks requests per minute **per area client** — each of the ten
+> clients (e.g. `Player`, `Guild`) has its own counter that starts at 120. When a client runs out,
+> that call throws `RateLimitException`. `IClient.ResetRpm()` (or a new minute) resets the counter.
+
+> **Exceptions:** only `RateLimitException` and `OperationCanceledException` (when you cancel a
+> request) are thrown. HTTP status errors, network failures, and deserialization failures are
+> returned as `Result.Error` instead.
 
 > **Cache durations:** every method below shows a "Cache" value. It is how long the SDK keeps the
 > response in memory **if you pass an `ICacheManager`**. Without a cache manager, every call makes a
@@ -272,6 +281,10 @@ result.Match(
 |---|---|---|
 | `AvailableAt` | `DateTime` | When the rate limit resets and you can call the API again. |
 
+It is one of only two exceptions that can escape a call. The other is `OperationCanceledException`,
+thrown when you cancel a request with a `CancellationToken`. Everything else — HTTP status errors,
+network failures, deserialization failures — is returned as `Result.Error`.
+
 ### Enums
 
 Common enums used across methods:
@@ -316,6 +329,34 @@ For the search endpoints, you can send a structured body.
 | `HealthOrDamage` | `List<int>?` | Health or damage values to include. |
 | `Duration` | `List<int>?` | Duration values to include. |
 | `BasicDuration` | `List<int>?` | Basic duration values to include. |
+
+---
+
+## Advanced: custom requests
+
+The ten area clients above cover every endpoint. If you ever need to call an endpoint the SDK does
+not wrap yet, `WynnHttpClient` exposes two extension points:
+
+**`SendAsync(HttpRequestBase request, CancellationToken cancellationToken = default)`**
+
+Sends a raw `HttpRequestBase` to the API with authentication (Bearer token injected if not set) and
+retry handling, and returns the raw `HttpResponseMessage`. You are responsible for reading the
+response body yourself.
+
+**`HttpRequestBase` / `HttpRequestBase<T>`**
+
+Subclass one of these to build a custom request, then implement the required members. The request
+classes in `Tavstal.WynnNetSDK.Http.Requests` (one per endpoint) are working examples you can copy:
+
+| Member | Purpose                                                                |
+|---|------------------------------------------------------------------------|
+| `GetKey()` | A unique cache key for the request. Used only when caching is enabled. |
+| `ToHttpRequestMessage()` | Builds the `HttpRequestMessage` (method, URL, headers, body).          |
+| `GetResponseBodyAsync(...)` | Deserializes the success response body into your result type.          |
+| `GetErrorResponseAsync(...)` | Deserializes an error response into an `ErrorResponse`.                |
+
+This API is advanced: it changes on minor releases and the primary supported way to use the SDK is
+through the clients.
 
 ---
 
