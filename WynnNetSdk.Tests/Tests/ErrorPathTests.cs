@@ -43,7 +43,7 @@ public class ErrorPathTests
         result.Error!.Name.Should().Be("Serialization error.");
     }
 
-    [Fact(DisplayName = "200 - Returns a failure for a malformed success body")]
+    [Fact(DisplayName = "200 - Returns a failure when the request body cannot be deserialized")]
     public async Task MalformedBodyReturnsFailure()
     {
         var client = CreateClient(_ => Json(HttpStatusCode.OK, "this is not json"));
@@ -52,6 +52,33 @@ public class ErrorPathTests
 
         result.IsError.Should().BeTrue();
         result.Error.Should().NotBeNull();
-        result.Error!.Name.Should().Be("Unexpected error occurred while deserializing success response body.");
+        result.Error!.Name.Should().Be("Unexpected error occurred while sending request.");
+    }
+
+    [Fact(DisplayName = "N/A - Returns a failure for a network error after retries run out")]
+    public async Task NetworkErrorReturnsFailure()
+    {
+        var client = CreateClient(_ => throw new HttpRequestException("connection reset"),
+            new WynnClientOptions { RetryDelay = TimeSpan.Zero });
+
+        var result = await client.Player.GetProfileAsync("Nepmia");
+
+        result.IsError.Should().BeTrue();
+        result.Error.Should().NotBeNull();
+        result.Error!.Name.Should().Be("HTTP Error, Status Code: 0");
+        result.Error.Message.Should().Contain("connection reset");
+    }
+
+    [Fact(DisplayName = "N/A - Returns a failure for an unexpected error while sending")]
+    public async Task UnexpectedSendErrorReturnsFailure()
+    {
+        var client = CreateClient(_ => throw new InvalidOperationException("boom"),
+            new WynnClientOptions { RetryDelay = TimeSpan.Zero });
+
+        var result = await client.Player.GetProfileAsync("Nepmia");
+
+        result.IsError.Should().BeTrue();
+        result.Error.Should().NotBeNull();
+        result.Error!.Name.Should().Be("Unexpected error occurred while sending request.");
     }
 }
