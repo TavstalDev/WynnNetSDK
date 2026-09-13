@@ -107,7 +107,7 @@ public abstract class HttpClientBase : IClient
             {
                 return Result<T, ErrorResponse>.Failure(new ErrorResponse
                 {
-                    Name = "Unexpected error occurred while deserializing success response body.",
+                    Name = "Unexpected error occurred while sending request.",
                     Message = ex.Message,
                 });
             }
