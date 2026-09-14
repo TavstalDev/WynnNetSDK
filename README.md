@@ -4,7 +4,9 @@
 ![Workflow Status](https://img.shields.io/github/actions/workflow/status/TavstalDev/WynnNetSDK/release.yml?branch=stable&label=build&style=plastic-square)
 ![License](https://img.shields.io/github/license/TavstalDev/WynnNetSDK?style=plastic-square)
 ![Downloads](https://img.shields.io/github/downloads/TavstalDev/WynnNetSDK/total?style=plastic-square)
+![Stars](https://img.shields.io/github/stars/TavstalDev/WynnNetSDK?style=plastic-square)
 ![Issues](https://img.shields.io/github/issues/TavstalDev/WynnNetSDK?style=plastic-square)
+![Forks](https://img.shields.io/github/forks/TavstalDev/WynnNetSDK?style=plastic-square)
 
 **WynnNetSDK** is a C# library for .NET. It connects your .NET app to the
 [Wynncraft API](https://docs.wynncraft.com/welcome). It handles the HTTP calls, JSON serialization,
