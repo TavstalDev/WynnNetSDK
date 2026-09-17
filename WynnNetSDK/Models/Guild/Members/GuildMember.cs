@@ -29,7 +29,7 @@ public class GuildMember
     /// The date and time the member last joined the game.
     /// </summary>
     [JsonPropertyName("lastJoin")]
-    public DateTime LastJoin { get; set; }
+    public DateTime? LastJoin { get; set; }
 
     /// <summary>
     /// The server the member is currently on, or null if offline.

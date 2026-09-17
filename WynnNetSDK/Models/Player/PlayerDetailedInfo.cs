@@ -86,7 +86,7 @@ public class PlayerDetailedInfo
     /// The date and time the player last joined.
     /// </summary>
     [JsonPropertyName("lastJoin")]
-    public DateTime LastJoin { get; set; }
+    public DateTime? LastJoin { get; set; }
 
     /// <summary>
     /// The player's guild information, or null if not in a guild.
