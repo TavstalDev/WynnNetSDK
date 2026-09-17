@@ -92,5 +92,5 @@ public class GuildDetailedInfo
     /// The guild's ranking information, or null if not available.
     /// </summary>
     [JsonPropertyName("ranking")]
-    public GuildRanking? Ranking { get; set; }
+    public Dictionary<string, int> Ranking { get; set; } = [];
 }
