@@ -81,12 +81,6 @@ public class GuildMemberGlobalData
     public PlayerDungeons GuildRaids { get; set; } = new();
 
     /// <summary>
-    /// The raid statistics for this member.
-    /// </summary>
-    [JsonPropertyName("raidStats")]
-    public PlayerRaidStats RaidStats { get; set; } = new();
-
-    /// <summary>
     /// The player versus player information for this member.
     /// </summary>
     [JsonPropertyName("pvp")]
