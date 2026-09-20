@@ -21,9 +21,11 @@ public class LeaderboardMetadataDeserializer : JsonConverter<LeaderboardMetadata
         using var doc = JsonDocument.ParseValue(ref reader);
         var element = doc.RootElement;
         var json = element.GetRawText();
+        if (json == "{}" || json == "[]")
+            return null;
 
         // Detect type by checking unique properties
-        if (element.TryGetProperty("playtime", out _) && element.TryGetProperty("totalLevelXp", out _))
+        if (element.TryGetProperty("playtime", out _) && element.TryGetProperty("totalLevel", out _))
             return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataTotalLevelXpPlaytime);
 
         if (element.TryGetProperty("xp", out _) && element.TryGetProperty("playtime", out _))
@@ -35,10 +37,10 @@ public class LeaderboardMetadataDeserializer : JsonConverter<LeaderboardMetadata
         if (element.TryGetProperty("completions", out _) && element.TryGetProperty("gambits", out _))
             return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataCompletionsGambits);
 
-        if (element.TryGetProperty("season", out _))
+        if (element.TryGetProperty("seasonName", out _) && element.TryGetProperty("position", out _))
             return JsonSerializer.Deserialize(json, WynnSdkJsonContext.Default.LeaderboardMetadataSeason);
 
-        throw new InvalidOperationException("Could not determine metadata type");
+        throw new InvalidOperationException($"Could not determine metadata type:\n {json}");
     }
 
     /// <summary>
