@@ -11,11 +11,11 @@ public class LeaderboardMetadataCompletionsGambits : LeaderboardMetadata
     /// The number of completions.
     /// </summary>
     [JsonPropertyName("completions")]
-    public int Completions { get; set; }
+    public ulong Completions { get; set; }
 
     /// <summary>
     /// The number of gambits earned.
     /// </summary>
     [JsonPropertyName("gambits")]
-    public int Gambits { get; set; }
+    public ulong Gambits { get; set; }
 }

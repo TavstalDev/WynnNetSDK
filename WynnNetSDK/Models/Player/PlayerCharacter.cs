@@ -35,7 +35,7 @@ public class PlayerCharacter
     /// The current experience points of the character.
     /// </summary>
     [JsonPropertyName("xp")]
-    public int Xp { get; set; }
+    public ulong Xp { get; set; }
 
     /// <summary>
     /// The experience progress percentage to the next level.

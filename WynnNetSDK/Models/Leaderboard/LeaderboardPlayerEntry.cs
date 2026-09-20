@@ -13,7 +13,7 @@ public class LeaderboardPlayerEntry : LeaderboardEntry
     /// The meta score of the player.
     /// </summary>
     [JsonPropertyName("metaScore")]
-    public int MetaScore { get; set; }
+    public ulong MetaScore { get; set; }
 
     /// <summary>
     /// The score of the player.
@@ -91,5 +91,5 @@ public class LeaderboardPlayerEntry : LeaderboardEntry
     /// The previous ranking of the player.
     /// </summary>
     [JsonPropertyName("previousRanking")]
-    public int? PreviousRanking { get; set; }
+    public ulong? PreviousRanking { get; set; }
 }

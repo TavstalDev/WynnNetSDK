@@ -11,5 +11,5 @@ public class LeaderboardMetadataPlaytime : LeaderboardMetadata
     /// The total playtime in minutes.
     /// </summary>
     [JsonPropertyName("playtime")]
-    public int Playtime { get; set; }
+    public double Playtime { get; set; }
 }

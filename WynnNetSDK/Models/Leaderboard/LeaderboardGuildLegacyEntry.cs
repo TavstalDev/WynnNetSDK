@@ -18,25 +18,25 @@ public class LeaderboardGuildLegacyEntry : LeaderboardEntry
     /// The level of the guild.
     /// </summary>
     [JsonPropertyName("level")]
-    public int Level { get; set; }
+    public ulong Level { get; set; }
 
     /// <summary>
     /// The experience points of the guild.
     /// </summary>
     [JsonPropertyName("xp")]
-    public int Xp { get; set; }
+    public ulong Xp { get; set; }
 
     /// <summary>
     /// The number of territories controlled by the guild.
     /// </summary>
     [JsonPropertyName("territories")]
-    public int Territories { get; set; }
+    public ulong Territories { get; set; }
 
     /// <summary>
     /// The number of wars won by the guild.
     /// </summary>
     [JsonPropertyName("wars")]
-    public int Wars { get; set; }
+    public ulong Wars { get; set; }
 
     /// <summary>
     /// The date and time the guild was created.

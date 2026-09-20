@@ -37,7 +37,7 @@ public class PlayerDetailedCharacter
     /// The current experience points of the character.
     /// </summary>
     [JsonPropertyName("xp")]
-    public int Xp { get; set; }
+    public ulong Xp { get; set; }
 
     /// <summary>
     /// The experience progress percentage to the next level.
@@ -79,7 +79,7 @@ public class PlayerDetailedCharacter
     /// The total playtime in hours for this character.
     /// </summary>
     [JsonPropertyName("playtime")]
-    public float Playtime { get; set; }
+    public double Playtime { get; set; }
 
     /// <summary>
     /// The number of mobs killed by this character.

@@ -48,7 +48,7 @@ public class Recipe
     /// The experience points gained from crafting this recipe.
     /// </summary>
     [JsonPropertyName("xp")]
-    public int Xp { get; set; }
+    public ulong Xp { get; set; }
 
     /// <summary>
     /// The durability range of the crafted item, or null if not applicable.

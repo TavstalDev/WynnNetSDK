@@ -17,5 +17,5 @@ public class LeaderboardMetadataSeason : LeaderboardMetadata
     /// The position within the season.
     /// </summary>
     [JsonPropertyName("position")]
-    public int Position { get; set; }
+    public ulong Position { get; set; }
 }

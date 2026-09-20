@@ -14,7 +14,7 @@ public class LeaderboardGuildEntry : LeaderboardEntry
     /// The meta score of the guild.
     /// </summary>
     [JsonPropertyName("metaScore")]
-    public int MetaScore { get; set; }
+    public ulong MetaScore { get; set; }
 
     /// <summary>
     /// The tag or prefix of the guild.

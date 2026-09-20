@@ -116,7 +116,7 @@ public class PlayerDetailedInfo
     /// The total playtime in hours.
     /// </summary>
     [JsonPropertyName("playtime")]
-    public float Playtime { get; set; }
+    public double Playtime { get; set; }
 
     /// <summary>
     /// Aggregated global data across all characters.
