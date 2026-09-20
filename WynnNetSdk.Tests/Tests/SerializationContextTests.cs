@@ -68,13 +68,13 @@ public class SerializationContextTests
     [Fact(DisplayName = "N/A - Leaderboard entries deserialize into the correct sub-types")]
     public void DeserializesLeaderboardEntries()
     {
-        var player = JsonSerializer.Deserialize("""{"username":"Nepmia"}""", WynnSdkJsonContext.Default.LeaderboardEntry);
+        var player = JsonSerializer.Deserialize("""{"name":"Nepmia", "restricted": false}""", WynnSdkJsonContext.Default.LeaderboardEntry);
         player.Should().BeOfType<LeaderboardPlayerEntry>();
 
-        var legacy = JsonSerializer.Deserialize("""{"guildUuid":"abc"}""", WynnSdkJsonContext.Default.LeaderboardEntry);
+        var legacy = JsonSerializer.Deserialize("""{"name":"abc", "wars": 32}""", WynnSdkJsonContext.Default.LeaderboardEntry);
         legacy.Should().BeOfType<LeaderboardGuildLegacyEntry>();
 
-        var guild = JsonSerializer.Deserialize("""{"name":"Tavstal"}""", WynnSdkJsonContext.Default.LeaderboardEntry);
+        var guild = JsonSerializer.Deserialize("""{"name":"abc"}""", WynnSdkJsonContext.Default.LeaderboardEntry);
         guild.Should().BeOfType<LeaderboardGuildEntry>();
     }
 }
