@@ -11,35 +11,35 @@ public class PlayerRaidStats
     /// The total amount of damage taken in raids.
     /// </summary>
     [JsonPropertyName("damageTaken")]
-    public int DamageTaken { get; set; }
+    public ulong DamageTaken { get; set; }
 
     /// <summary>
     /// The total amount of damage dealt in raids.
     /// </summary>
     [JsonPropertyName("damageDealt")]
-    public int DamageDealt { get; set; }
+    public ulong DamageDealt { get; set; }
 
     /// <summary>
     /// The total amount of health healed in raids.
     /// </summary>
     [JsonPropertyName("healthHealed")]
-    public int HealthHealed { get; set; }
+    public ulong HealthHealed { get; set; }
 
     /// <summary>
     /// The total number of deaths in raids.
     /// </summary>
     [JsonPropertyName("deaths")]
-    public int Deaths { get; set; }
+    public ulong Deaths { get; set; }
 
     /// <summary>
     /// The total number of buffs taken in raids.
     /// </summary>
     [JsonPropertyName("buffsTaken")]
-    public int BuffsTaken { get; set; }
+    public ulong BuffsTaken { get; set; }
 
     /// <summary>
     /// The total number of gambits used in raids.
     /// </summary>
     [JsonPropertyName("gambitsUsed")]
-    public int GambitsUsed { get; set; }
+    public ulong GambitsUsed { get; set; }
 }

@@ -80,7 +80,7 @@ public class PlayerDetailedInfo
     /// Whether the player has veteran status.
     /// </summary>
     [JsonPropertyName("veteran")]
-    public bool Veteran { get; set; }
+    public bool? Veteran { get; set; }
 
     /// <summary>
     /// The date and time the player last joined.
