@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 /// <summary>
 /// Represents the attack speed of an item.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EAttackSpeed>))]
 public enum EAttackSpeed
 {
     /// <summary>

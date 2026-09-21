@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.Classes;
 
 /// <summary>
 /// The available player character classes in Wynncraft.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EClass>))]
 public enum EClass
 {
     /// <summary>

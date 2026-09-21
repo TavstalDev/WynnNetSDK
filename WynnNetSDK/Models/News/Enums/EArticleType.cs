@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.News.Enums;
 
 /// <summary>
 /// The type of a news article.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EArticleType>))]
 public enum EArticleType
 {
     /// <summary>

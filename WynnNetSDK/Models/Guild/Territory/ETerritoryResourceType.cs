@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
+
 namespace Tavstal.WynnNetSDK.Models.Guild.Territory;
 
 /// <summary>
 /// Represents the type of resource a territory can produce.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<ETerritoryResourceType>))]
 public enum ETerritoryResourceType
 {
     /// <summary>

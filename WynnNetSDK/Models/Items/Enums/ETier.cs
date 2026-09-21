@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 /// <summary>
 /// Represents the rarity tier of an item.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<ETier>))]
 public enum ETier
 {
     /// <summary>
@@ -46,20 +48,24 @@ public enum ETier
     /// <summary>
     /// Tier 3.
     /// </summary>
+    [JsonPropertyName("TIER_3")]
     TIER3,
 
     /// <summary>
     /// Tier 2.
     /// </summary>
+    [JsonPropertyName("TIER_2")]
     TIER2,
 
     /// <summary>
     /// Tier 1.
     /// </summary>
+    [JsonPropertyName("TIER_1")]
     TIER1,
 
     /// <summary>
     /// Tier 0.
     /// </summary>
+    [JsonPropertyName("TIER_0")]
     TIER0
 }

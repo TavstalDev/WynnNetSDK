@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 /// <summary>
 /// Represents the emblem displayed on an item.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EEmblem>))]
 public enum EEmblem
 {
     /// <summary>

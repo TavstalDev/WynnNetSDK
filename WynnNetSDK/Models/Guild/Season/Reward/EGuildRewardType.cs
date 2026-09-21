@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
+
 namespace Tavstal.WynnNetSDK.Models.Guild.Season.Reward;
 
 /// <summary>
 /// Represents the type of reward a guild can earn in a season.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EGuildRewardType>))]
 public enum EGuildRewardType
 {
     /// <summary>

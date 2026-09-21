@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.News.Enums;
 
 /// <summary>
 /// The sub type of a poll requirement, such as a profession or raid.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EPollRequirementSubType>))]
 public enum EPollRequirementSubType
 {
     /// <summary>

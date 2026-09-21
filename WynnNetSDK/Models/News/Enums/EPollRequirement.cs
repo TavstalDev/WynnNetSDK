@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.News.Enums;
 
 /// <summary>
 /// The type of requirement for a poll question.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EPollRequirement>))]
 public enum EPollRequirement
 {
     /// <summary>

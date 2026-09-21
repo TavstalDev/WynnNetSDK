@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
+
 namespace Tavstal.WynnNetSDK.Models.Abilities;
 
 /// <summary>
 /// The type of a node in the ability tree.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EAbilityType>))]
 public enum EAbilityType
 {
     /// <summary>

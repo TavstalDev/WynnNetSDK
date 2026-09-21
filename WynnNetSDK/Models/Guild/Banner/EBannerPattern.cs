@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
+
 namespace Tavstal.WynnNetSDK.Models.Guild.Banner;
 
 /// <summary>
 /// Represents a pattern that can be applied to a guild banner layer.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EBannerPattern>))]
 public enum EBannerPattern
 {
     /// <summary>

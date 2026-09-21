@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 /// <summary>
 /// Represents the gathering skill type for an item.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EGathering>))]
 public enum EGathering
 {
     /// <summary>

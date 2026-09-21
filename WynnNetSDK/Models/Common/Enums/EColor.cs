@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
+
 namespace Tavstal.WynnNetSDK.Models.Common.Enums;
 
 /// <summary>
 /// Represents the colour of an item or text.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EColor>))]
 public enum EColor
 {
     /// <summary>

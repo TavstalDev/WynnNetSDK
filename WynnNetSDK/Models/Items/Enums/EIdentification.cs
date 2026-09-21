@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
+using Tavstal.WynnNetSDK.Serialization.Converters;
 
 namespace Tavstal.WynnNetSDK.Models.Items.Enums;
 
 /// <summary>
 /// Represents all possible item identifications in Wynncraft.
 /// </summary>
+[JsonConverter(typeof(JsonPropertyNameStringEnumConverter<EIdentification>))]
 public enum EIdentification
 {
     /// <summary>
