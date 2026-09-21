@@ -62,7 +62,7 @@ public class SerializationContextTests
         var json = JsonSerializer.Serialize(body, WynnSdkJsonContext.Default.ItemSearchRequestBody);
 
         json.Should().Contain("\"query\":\"Ragni\"");
-        json.Should().Contain("\"tier\":[\"MYTHIC\",\"FABLED\"]");
+        json.Should().Contain("\"tier\":[\"mythic\",\"fabled\"]");
     }
 
     [Fact(DisplayName = "N/A - Leaderboard entries deserialize into the correct sub-types")]
