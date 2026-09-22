@@ -11,6 +11,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 </details>
 
+## [1.0.1] - 2026.09.22
+<details>
+<summary>Bug fixes, model corrections, and improved enum serialization.</summary>
+
+### Fixed
+
+- **Ranking property type** changed to `Dictionary<string, int>`
+- **Integer properties** throughout leaderboard metadata and player stats changed to `ulong`
+- **LastJoin property** type changed to `DateTime?`
+- **Veteran property** type updated to `bool?`
+- **RaidStats property** removed from `GuildMemberGlobalData`
+- **Empty JSON handling** in `LeaderboardEntryDeserializer` and `LeaderboardMetadataDeserializer`
+- **Tier values** now serialized to lowercase in JSON
+
+### Added
+
+- **`JsonPropertyNameStringEnumConverter`** for enum serialization
+
+### Changed
+
+- **Deserialization tests** updated for `LeaderboardEntry`
+- **README** now includes stars and forks badges
+
+</details>
+
 ## [1.0.0] - 2026.09.13
 <details>
 <summary>Initial release.</summary>
@@ -54,5 +79,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 </details>
 
-[unreleased]: https://github.com/TavstalDev/WynnNetSDK/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/TavstalDev/WynnNetSDK/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/TavstalDev/WynnNetSDK/releases/tag/v1.0.1
 [1.0.0]: https://github.com/TavstalDev/WynnNetSDK/releases/tag/v1.0.0
